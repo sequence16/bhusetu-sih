@@ -1,0 +1,142 @@
+/* Cards */
+.info-card {
+  background-color: var(--bone);
+  border: 1px solid var(--taupe);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.card-title {
+  color: var(--charcoal);
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--taupe);
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+
+/* Field Rows */
+.field-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+.field-row span:first-child {
+  color: var(--clay-mid);
+}
+.field-row span:last-child {
+  color: var(--charcoal);
+  font-weight: 500;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-top: 0;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--taupe);
+}
+
+#triage-section {
+  overflow-x: auto;
+}
+
+/* Triage Table */
+#triage-queue-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--bone);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+#triage-queue-table th {
+  background-color: var(--taupe);
+  text-align: left;
+  padding: 12px;
+  font-size: 13px;
+  color: var(--charcoal);
+}
+#triage-queue-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--taupe);
+  font-size: 13px;
+}
+#triage-queue-table tr:nth-child(even) {
+  background-color: var(--parchment);
+}
+#triage-queue-table tr.severity-critical {
+  border-left: 4px solid var(--critical-red);
+}
+#triage-queue-table tr.severity-warning {
+  border-left: 4px solid var(--warning-amber);
+}
+
+/* Corroboration Grid */
+#corroboration-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+@media (max-width: 767px) {
+  #corroboration-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.corr-card {
+  background-color: var(--bone);
+  border: 1px solid var(--taupe);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+}
+.corr-card h4 {
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--taupe);
+}
+#ror-record-card h4 { color: var(--terra-primary); }
+#cadastral-vector-card h4 { color: var(--clay-slate); }
+#drone-truth-card h4 { color: var(--warning-amber); }
+
+/* Audit & Encumbrance Timelines */
+#audit-log-entries, #encumbrance-list {
+  position: relative;
+  padding-left: 20px;
+}
+.timeline-entry {
+  position: relative;
+  padding-bottom: 16px;
+  font-size: 13px;
+}
+.timeline-entry::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--terra-primary);
+}
+.timeline-entry::after {
+  content: '';
+  position: absolute;
+  left: -16px;
+  top: 14px;
+  width: 2px;
+  height: calc(100% - 10px);
+  background-color: var(--taupe-dark);
+}
+.timeline-entry:last-child::after {
+  display: none;
+}

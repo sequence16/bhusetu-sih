@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BhuSetu | Bharat Unified Land Stack</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script src="https://unpkg.com/@turf/turf@7/turf.min.js"></script>
+  <script src="https://unpkg.com/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
+  <script src="https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/map.css">
+  <link rel="stylesheet" href="css/panels.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+
+  <!-- JS (defer, in order) -->
+  <script src="js/config.js" defer></script>
+  <script src="js/seed-data.js" defer></script>
+  <script src="js/map-engine.js" defer></script>
+  <script src="js/spatial-analysis.js" defer></script>
+  <script src="js/ui-controller.js" defer></script>
+  <script src="js/citizen-portal.js" defer></script>
+  <script src="js/officer-console.js" defer></script>
+  <script src="js/admin-dashboard.js" defer></script>
+  <script src="js/schema-adapter.js" defer></script>
+  <script src="js/data-ingestion.js" defer></script>
+  <script src="js/ai-copilot.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body id="app-body">
+
+  <!-- ===== HEADER ===== -->
+  <header id="app-header">
+    <div id="header-left">
+      <img id="app-logo" src="assets/favicon.svg" />
+      <div id="app-title-group">
+        <h1 id="app-title">BhuSetu</h1>
+        <span id="app-subtitle">Bharat Unified Land Stack</span>
+      </div>
+    </div>
+    <div id="header-center">
+      <div id="role-switcher">
+        <button class="role-btn active" data-role="citizen">Citizen Portal</button>
+        <button class="role-btn" data-role="officer">Officer Console</button>
+        <button class="role-btn" data-role="admin">State Admin</button>
+      </div>
+    </div>
+    <div id="header-right">
+      <div id="search-container">
+        <input id="ulpin-search-input" type="text" placeholder="Search ULPIN / Survey No..." autocomplete="off" />
+        <div id="search-dropdown" class="hidden"></div>
+      </div>
+      <div id="sync-status"><span class="sync-dot"></span> Synced 2 min ago</div>
+    </div>
+  </header>
+
+  <!-- ===== CITIZEN PORTAL VIEW ===== -->
+  <main id="citizen-view" class="portal-view active">
+    <aside id="citizen-left-panel" class="side-panel">
+      <div id="parcel-identity-card" class="info-card">
+        <h3 class="card-title">Parcel Identity</h3>
+        <div id="parcel-ulpin" class="field-row"></div>
+        <div id="parcel-survey-no" class="field-row"></div>
+        <div id="parcel-classification" class="field-row"></div>
+        <div id="parcel-location" class="field-row"></div>
+      </div>
+      <div id="owner-card" class="info-card">
+        <h3 class="card-title">Ownership</h3>
+        <div id="owner-name" class="field-row"></div>
+        <div id="owner-type" class="field-row"></div>
+      </div>
+      <div id="area-card" class="info-card">
+        <h3 class="card-title">Area Measurement</h3>
+        <div id="area-ror-value" class="field-row"></div>
+        <div id="area-gis-value" class="field-row"></div>
+        <div id="area-regional" class="field-row"></div>
+        <div id="area-match-status" class="field-row"></div>
+      </div>
+      <div id="zoning-card" class="info-card">
+        <h3 class="card-title">Zoning</h3>
+        <div id="zoning-badge"></div>
+      </div>
+      <div id="encumbrance-card" class="info-card">
+        <h3 class="card-title">Encumbrance History</h3>
+        <div id="encumbrance-list"></div>
+      </div>
+      <div id="tax-card" class="info-card">
+        <h3 class="card-title">Tax Status</h3>
+        <div id="tax-status" class="field-row"></div>
+        <div id="tax-last-paid" class="field-row"></div>
+        <div id="tax-amount" class="field-row"></div>
+      </div>
+    </aside>
+
+    <section id="citizen-center" class="center-panel">
+      <div id="map-container">
+        <div id="map-canvas"></div>
+        <!-- MapLibre mounts inside #map-canvas -->
+        <div id="layer-toggle-panel" class="map-overlay-panel">
+          <h4>Layers</h4>
+          <label><input type="checkbox" id="layer-toggle-cadastral" checked /> Cadastral Boundaries</label>
+          <label><input type="checkbox" id="layer-toggle-drone" checked /> Drone Orthomosaic</label>
+          <label><input type="checkbox" id="layer-toggle-footprint" checked /> Building Footprints</label>
+          <label><input type="checkbox" id="layer-toggle-violations" checked /> Conflict Overlays</label>
+          <label><input type="checkbox" id="layer-toggle-buffers" checked /> Buffer Zones</label>
+          <div id="opacity-controls">
+            <label>Layer Opacity</label>
+            <input type="range" id="opacity-slider" min="0" max="100" value="70" />
+          </div>
+        </div>
+        <button id="split-view-btn" class="map-tool-btn" title="Split View">⇔ Split</button>
+        <div id="geojson-drop-overlay" class="hidden">
+          <div class="drop-message">Drop GeoJSON File Here</div>
+        </div>
+      </div>
+    </section>
+
+    <aside id="citizen-right-panel" class="side-panel">
+      <div id="trust-score-card" class="info-card">
+        <h3 class="card-title">Public Trust Score</h3>
+        <div id="trust-gauge">
+          <span id="trust-grade-letter"></span>
+        </div>
+        <div id="trust-details"></div>
+      </div>
+      <div id="violation-summary" class="info-card">
+        <h3 class="card-title">Compliance Status</h3>
+        <div id="parcel-alerts-container"></div>
+      </div>
+      <button id="download-card-btn" class="btn btn-primary full-width">
+        ⬇ Download Verified Property Card
+      </button>
+    </aside>
+  </main>
+
+  <!-- ===== OFFICER CONSOLE VIEW ===== -->
+  <main id="officer-view" class="portal-view hidden">
+    <div id="officer-layout">
+      <section id="triage-section">
+        <h2 class="section-title">Triaging Queue</h2>
+        <table id="triage-queue-table">
+          <thead>
+            <tr>
+              <th>Priority</th><th>ULPIN / Survey</th><th>Violation Type</th>
+              <th>Location</th><th>Timestamp</th><th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="triage-queue-body"></tbody>
+        </table>
+      </section>
+
+      <section id="officer-parcel-select-section">
+        <h2 class="section-title">Select Parcel for Review</h2>
+        <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+          <select id="officer-parcel-select" style="min-width:250px;">
+            <option value="">-- Select a parcel --</option>
+          </select>
+          <button id="officer-review-btn" class="btn btn-primary">Load for Review</button>
+        </div>
+      </section>
+
+      <section id="corroboration-section" class="hidden">
+        <h2 class="section-title">Three-Way Corroboration</h2>
+        <div id="corroboration-grid">
+          <div id="ror-record-card" class="corr-card">
+            <h4>RoR Legal Record</h4>
+            <div id="ror-record-content"></div>
+          </div>
+          <div id="cadastral-vector-card" class="corr-card">
+            <h4>Cadastral Vector</h4>
+            <div id="cadastral-vector-content"></div>
+          </div>
+          <div id="drone-truth-card" class="corr-card">
+            <h4>Drone Ground Truth</h4>
+            <div id="drone-truth-content"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="officer-map-section">
+        <h2 class="section-title">Parcel Map</h2>
+        <div id="officer-map-container" style="min-height: 400px;">
+          <div id="officer-map-canvas"></div>
+        </div>
+      </section>
+
+      <section id="resolution-section" class="hidden">
+        <h2 class="section-title">Resolution Actions</h2>
+        <div id="resolution-actions">
+          <button id="btn-dispatch-uav" class="btn btn-outline">🛩 Dispatch UAV Re-survey</button>
+          <button id="btn-issue-notice" class="btn btn-danger">📋 Issue Show-Cause Notice</button>
+          <button id="btn-validate" class="btn btn-success">✓ Validate Approval</button>
+          <button id="btn-escalate" class="btn btn-warning">⬆ Escalate to District Collector</button>
+        </div>
+      </section>
+
+      <section id="audit-section">
+        <h2 class="section-title">Immutable Audit Log</h2>
+        <div id="audit-log-entries"></div>
+      </section>
+
+      <section id="upload-tools-section">
+        <h2 class="section-title">Data Ingestion Tools</h2>
+        <div id="upload-tools-panel">
+          <button id="geojson-upload-btn" class="btn btn-outline">📂 Upload GeoJSON/Shapefile</button>
+          <div id="wms-input-group">
+            <input id="wms-url-input" type="text" placeholder="Paste WMS/XYZ Tile URL..." />
+            <button id="wms-load-btn" class="btn btn-outline">Load Tiles</button>
+          </div>
+          <button id="ocr-upload-btn" class="btn btn-outline">📄 OCR Document Upload</button>
+          <button id="schema-adapter-btn" class="btn btn-outline">🔧 Schema Adapter</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ===== ADMIN DASHBOARD VIEW ===== -->
+  <main id="admin-view" class="portal-view hidden">
+    <div id="admin-layout">
+      <div id="admin-header-bar">
+        <h2>State Administration Dashboard</h2>
+        <p style="font-size: 13px; color: var(--clay-mid); margin: 0 0 16px 0;">
+          This dashboard provides a macro-level view of land governance metrics across states. It tracks the ingestion of cadastral data, active conflicts detected via spatial analysis, and anomaly scores (Isolation Forest) across registered properties.
+        </p>
+        <select id="state-filter-select">
+          <option value="all">All Districts</option>
+          <option value="Sangareddy">Sangareddy</option>
+          <option value="Rangareddy">Rangareddy</option>
+          <option value="Warangal_Urban">Warangal Urban</option>
+          <option value="Peddapalli">Peddapalli (Karimnagar)</option>
+          <option value="Nalgonda">Nalgonda</option>
+          <option value="Siddipet">Siddipet</option>
+        </select>
+      </div>
+
+      <section class="admin-section">
+        <h3 class="section-title">Key Performance Metrics</h3>
+        <p class="section-subtitle">Real-time land governance indicators</p>
+        <div id="admin-metrics-row">
+          <div class="metric-card" id="metric-total-parcels">
+            <span class="metric-label">Total Parcels Indexed</span>
+            <span class="metric-value">0</span>
+          </div>
+          <div class="metric-card" id="metric-active-conflicts">
+            <span class="metric-label">Active Conflicts</span>
+            <span class="metric-value">0</span>
+          </div>
+          <div class="metric-card" id="metric-resolved">
+            <span class="metric-label">Resolved</span>
+            <span class="metric-value">0</span>
+          </div>
+          <div class="metric-card" id="metric-throughput">
+            <span class="metric-label">Pipeline Throughput</span>
+            <span class="metric-value">0/hr</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="admin-section">
+        <h3 class="section-title">Geospatial & Risk Analysis</h3>
+        <p class="section-subtitle">Regional distribution and ML-based anomaly detection</p>
+        <div id="admin-charts-row">
+          <div id="admin-map-container">
+            <h3 class="section-title">Regional Map</h3>
+            <div id="admin-map-canvas"></div>
+          </div>
+          <div id="anomaly-chart-container">
+            <h3 class="section-title">Isolation Forest Score Distribution</h3>
+            <div style="font-size: 12px; margin-bottom: 8px; color: var(--clay-mid);">
+              <strong>Legend:</strong> 0-0.4 (Low Risk), 0.4-0.7 (Medium Risk), 0.7-1.0 (High Risk/Anomalous)
+            </div>
+            <div id="anomaly-chart-bars"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pipeline-section" class="admin-section">
+        <h3 class="section-title">Schema Adapter Pipeline Activity</h3>
+        <p class="section-subtitle">Latest data ingestion events</p>
+        <div id="pipeline-feed-entries"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer id="app-footer" style="background:var(--charcoal); color:var(--clay-mid); text-align:center; padding:12px; font-size:11px;">
+    BhuSetu v1.0 | Bharat Unified Land Stack | Smart India Hackathon 2026 (SIH26014) | Data Source: TRACGIS Bhunaksha Cadastrals, Telangana
+  </footer>
+
+  <!-- ===== AI COPILOT DRAWER ===== -->
+  <button id="ai-toggle-btn" title="Bhu-Sahayak AI">🤖</button>
+  <aside id="ai-drawer" class="closed">
+    <div id="ai-drawer-header">
+      <h3>🤖 Bhu-Sahayak AI Copilot</h3>
+      <button id="ai-drawer-close">✕</button>
+    </div>
+    <div id="ai-chat-messages"></div>
+    <div id="ai-input-area">
+      <input id="ai-input-field" type="text" placeholder="Ask about land records, disputes..." />
+      <button id="ai-send-btn" class="btn btn-primary">Send</button>
+    </div>
+  </aside>
+
+  <!-- ===== SCHEMA ADAPTER MODAL ===== -->
+  <div id="schema-modal-overlay" class="modal-overlay hidden">
+    <div id="schema-modal" class="modal-content">
+      <div class="modal-header">
+        <h3>Schema Adapter — Field Mapping</h3>
+        <button id="schema-close-btn" class="modal-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div id="schema-source-type-selector">
+          <label>Source Record Type:</label>
+          <select id="schema-source-select">
+            <option value="ror">RoR (Record of Rights)</option>
+            <option value="pahani">Pahani / Adangal</option>
+            <option value="jamabandi">Jamabandi</option>
+            <option value="satbara">7/12 Extract (Satbara)</option>
+            <option value="mcd-approval">Municipal Building Approval</option>
+            <option value="deed">Sub-Registrar Deed</option>
+          </select>
+        </div>
+        <div id="schema-columns">
+          <div id="schema-source-panel">
+            <h4>Source Fields</h4>
+            <div id="schema-source-fields"></div>
+          </div>
+          <div id="schema-mapping-lines"></div>
+          <div id="schema-target-panel">
+            <h4>Canonical ULPIN Model</h4>
+            <div id="schema-target-fields"></div>
+          </div>
+        </div>
+        <div id="schema-preview-section">
+          <h4>Preview Mapped Record</h4>
+          <table id="schema-preview-table">
+            <thead><tr><th>Canonical Field</th><th>Mapped Value</th><th>Unit</th></tr></thead>
+            <tbody id="schema-preview-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="schema-apply-btn" class="btn btn-primary">Apply Mapping</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== OCR MODAL ===== -->
+  <div id="ocr-modal-overlay" class="modal-overlay hidden">
+    <div id="ocr-modal" class="modal-content">
+      <div class="modal-header">
+        <h3>Document Vision / OCR Parser</h3>
+        <button id="ocr-close-btn" class="modal-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div id="ocr-dropzone" class="dropzone">
+          <p>📄 Drop a scanned deed / patta document here</p>
+          <p class="dropzone-sub">Accepts JPG, PNG, PDF</p>
+          <span id="ocr-file-name"></span>
+        </div>
+        <div id="ocr-results-panel" class="hidden">
+          <h4>Extracted Fields (Vision-LLM/OCR)</h4>
+          <pre id="ocr-json-output"></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NOTIFICATION CONTAINER ===== -->
+  <div id="notification-container"></div>
+
+</body>
+</html>
