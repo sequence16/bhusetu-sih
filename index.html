@@ -74,6 +74,18 @@
   <!-- ===== CITIZEN PORTAL VIEW ===== -->
   <main id="citizen-view" class="portal-view active">
     <aside id="citizen-left-panel" class="side-panel">
+      <div id="citizen-parcel-select-card" class="info-card" style="background: var(--bone); border-left: 4px solid var(--terra-primary);">
+        <h3 class="card-title" style="display:flex; justify-content:space-between; align-items:center;">
+          <span>Select Land Parcel</span>
+          <span style="font-size:10px; font-weight:normal; text-transform:none; color:var(--clay-mid);">Citizen Access</span>
+        </h3>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <select id="citizen-parcel-select" style="width:100%; box-sizing:border-box; padding:7px 10px; border:1px solid var(--taupe-dark); border-radius:var(--radius-sm); font-size:12px; background:var(--white); color:var(--charcoal);">
+            <option value="">-- Choose Parcel to Verify --</option>
+          </select>
+        </div>
+      </div>
+
       <div id="parcel-identity-card" class="info-card">
         <h3 class="card-title">Parcel Identity</h3>
         <div id="parcel-ulpin" class="field-row"></div>

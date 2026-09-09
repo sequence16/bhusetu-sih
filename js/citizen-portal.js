@@ -8,10 +8,48 @@ BhuSetu.CitizenPortal = {
         if (parcel) this.generatePropertyCardPDF(parcel);
       });
     }
+
+    this.populateParcelSelect();
+
+    const citizenSelect = document.getElementById('citizen-parcel-select');
+    if (citizenSelect) {
+      citizenSelect.addEventListener('change', (e) => {
+        const parcelId = e.target.value;
+        if (parcelId && BhuSetu.UI && BhuSetu.UI.selectParcel) {
+          BhuSetu.UI.selectParcel(parcelId);
+        }
+      });
+    }
+  },
+
+  populateParcelSelect() {
+    const select = document.getElementById('citizen-parcel-select');
+    if (!select || !BhuSetu.SeedData) return;
+    
+    select.innerHTML = '<option value="">-- Choose Parcel to Verify --</option>';
+    
+    const parcels = BhuSetu.SeedData.getAllParcels();
+    parcels.forEach(p => {
+      const opt = document.createElement('option');
+      opt.value = p.id;
+      const score = (p.trustScore !== undefined && p.trustScore !== null) ? p.trustScore : (p.trust_num !== undefined ? p.trust_num : 70);
+      const grade = p.trustGrade || p.trust_score || 'B';
+      const vill = (p.location && p.location.village) ? p.location.village : (p.village || '');
+      const dist = (p.location && p.location.district) ? p.location.district : (p.district || '');
+      const identifier = p.ulpin || p.surveyNumber || p.state_survey_no || p.id;
+      
+      opt.textContent = `${identifier} [Trust Score: ${score}/100 Grade ${grade}] - ${vill}, ${dist}`;
+      select.appendChild(opt);
+    });
   },
 
   displayParcel(parcel) {
     if (!parcel) return;
+
+    const citizenSelect = document.getElementById('citizen-parcel-select');
+    if (citizenSelect && citizenSelect.value !== parcel.id) {
+      citizenSelect.value = parcel.id;
+    }
 
     // Left Panel
     const ulpinEl = document.getElementById('parcel-ulpin');
