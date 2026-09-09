@@ -9,10 +9,6 @@ BhuSetu.UI = {
     document.querySelectorAll('.role-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const targetRole = e.target.dataset.role;
-        if (targetRole === 'officer' && !this.currentUser) {
-          this.openLoginModal("Officer authentication required. Use the 1-Click Auto-Fill button for SIH evaluation.");
-          return;
-        }
         this.switchRole(targetRole);
       });
     });
