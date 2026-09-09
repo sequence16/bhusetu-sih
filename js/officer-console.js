@@ -5,10 +5,12 @@ BhuSetu.OfficerConsole = {
 
   init() {
     const resBtns = [
-      { id: 'btn-dispatch-uav', action: 'UAV_RESURVEY_DISPATCHED' },
-      { id: 'btn-issue-notice', action: 'SHOW_CAUSE_NOTICE_ISSUED' },
-      { id: 'btn-validate', action: 'APPROVAL_VALIDATED' },
-      { id: 'btn-escalate', action: 'ESCALATED_TO_DC' }
+      { id: 'btn-issue-notice', action: 'SHOW_CAUSE_NOTICE_ISSUED', label: 'Show-Cause Notice Issued' },
+      { id: 'btn-dispatch-surveyor', action: 'FIELD_SURVEYOR_DISPATCHED', label: 'Field Surveyor Dispatched' },
+      { id: 'btn-dispatch-uav', action: 'FIELD_SURVEYOR_DISPATCHED', label: 'Field Surveyor Dispatched' },
+      { id: 'btn-order-demolition', action: 'DEMOLITION_REVIEW_ORDERED', label: 'Demolition Review Order Issued' },
+      { id: 'btn-validate', action: 'APPROVAL_VALIDATED', label: 'Title Approval Validated' },
+      { id: 'btn-escalate', action: 'ESCALATED_TO_DC', label: 'Escalated to District Collector' }
     ];
 
     resBtns.forEach(btn => {

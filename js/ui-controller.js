@@ -33,15 +33,15 @@ BhuSetu.UI = {
       });
     }
 
-    // Auto-fill Judge credentials
+    // Auto-fill Officer credentials
     const quickFillBtn = document.getElementById('quick-fill-judge-btn');
     if (quickFillBtn) {
       quickFillBtn.addEventListener('click', () => {
         const u = document.getElementById('login-username');
         const p = document.getElementById('login-password');
-        if (u) u.value = 'sih_judge_admin';
+        if (u) u.value = 'officer_admin';
         if (p) p.value = 'BhuSetu@2026';
-        this.showNotification('SIH Judge Credentials auto-filled.', 'info');
+        this.showNotification('Revenue Officer Credentials auto-filled.', 'info');
       });
     }
 
@@ -126,48 +126,42 @@ BhuSetu.UI = {
     }
 
     // Call Backend API
-    fetch('/api/auth/login', {
+    fetch('/api/auth/officer-login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password })
     })
     .then(r => r.json())
     .then(data => {
-      if (data.success && data.user) {
-        this.setAuthenticatedUser(data.user);
+      if (data.success) {
+        const user = {
+          username: username,
+          role: data.role || 'REVENUE_OFFICER',
+          full_name: data.full_name || (data.user ? data.user.full_name : "K. Chandrashekhar Rao (Tahsildar)"),
+          designation: data.designation || "Divisional Revenue Officer / Tahsildar",
+          jurisdiction: data.jurisdiction || "Ranga Reddy District / Zone 4"
+        };
+        this.setAuthenticatedUser(user);
         this.closeLoginModal();
-        this.showNotification(`Authenticated as ${data.user.full_name} (${data.user.tier || 'Officer'})`, 'success');
+        this.showNotification(`Authenticated: ${user.designation} (${user.jurisdiction})`, 'success');
         this.switchRole('officer');
       } else {
-        // Fallback check for offline testing
-        if (username === 'sih_judge_admin' && password === 'BhuSetu@2026') {
-          const fallbackUser = {
-            username: 'sih_judge_admin',
-            role: 'officer',
-            full_name: "Hon'ble SIH Evaluation Committee",
-            tier: 'Chief Land Governance Auditor'
-          };
-          this.setAuthenticatedUser(fallbackUser);
-          this.closeLoginModal();
-          this.showNotification(`Authenticated as ${fallbackUser.full_name}`, 'success');
-          this.switchRole('officer');
-        } else {
-          if (errEl) {
-            errEl.textContent = data.message || 'Invalid credentials. Use sih_judge_admin / BhuSetu@2026';
-            errEl.style.color = 'var(--critical-red)';
-            errEl.style.display = 'block';
-          }
+        if (errEl) {
+          errEl.textContent = data.message || 'Invalid credentials. Use officer_admin / BhuSetu@2026';
+          errEl.style.color = 'var(--critical-red)';
+          errEl.style.display = 'block';
         }
       }
     })
     .catch(() => {
-      // Local fallback in case network disconnected
-      if (username === 'sih_judge_admin' && password === 'BhuSetu@2026') {
+      // Offline fallback
+      if ((username === 'officer_admin' || username === 'sih_judge_admin') && password === 'BhuSetu@2026') {
         const fallbackUser = {
-          username: 'sih_judge_admin',
-          role: 'officer',
-          full_name: "Hon'ble SIH Evaluation Committee",
-          tier: 'Chief Land Governance Auditor'
+          username: username,
+          role: 'REVENUE_OFFICER',
+          full_name: username === 'officer_admin' ? 'K. Chandrashekhar Rao (Tahsildar)' : "Hon'ble SIH Evaluation Committee",
+          designation: 'Divisional Revenue Officer / Tahsildar',
+          jurisdiction: 'Ranga Reddy District / Zone 4'
         };
         this.setAuthenticatedUser(fallbackUser);
         this.closeLoginModal();
@@ -175,7 +169,7 @@ BhuSetu.UI = {
         this.switchRole('officer');
       } else {
         if (errEl) {
-          errEl.textContent = 'Connection error. Use sih_judge_admin / BhuSetu@2026';
+          errEl.textContent = 'Use officer_admin / BhuSetu@2026';
           errEl.style.color = 'var(--critical-red)';
           errEl.style.display = 'block';
         }

@@ -202,11 +202,11 @@
 
       <section id="resolution-section" class="hidden">
         <h2 class="section-title">Resolution Actions</h2>
-        <div id="resolution-actions">
-          <button id="btn-dispatch-uav" class="btn btn-outline">🛩 Dispatch UAV Re-survey</button>
-          <button id="btn-issue-notice" class="btn btn-danger">📋 Issue Show-Cause Notice</button>
-          <button id="btn-validate" class="btn btn-success">✓ Validate Approval</button>
-          <button id="btn-escalate" class="btn btn-warning">⬆ Escalate to District Collector</button>
+        <div id="resolution-actions" style="display:flex; gap:12px; flex-wrap:wrap;">
+          <button id="btn-issue-notice" class="btn btn-danger" style="font-weight:600;">📋 Issue Show-Cause Notice</button>
+          <button id="btn-dispatch-surveyor" class="btn btn-outline" style="font-weight:600;">🛩️ Dispatch Field Surveyor</button>
+          <button id="btn-order-demolition" class="btn btn-danger" style="background:#991B1B; border-color:#991B1B; color:#fff; font-weight:600;">🚨 Order Demolition Review</button>
+          <button id="btn-validate" class="btn btn-success" style="font-weight:600;">✓ Validate Approval</button>
         </div>
       </section>
 
@@ -395,15 +395,15 @@
 
         <!-- Quick 1-Click Evaluation Credentials Button -->
         <button id="quick-fill-judge-btn" class="btn btn-outline full-width" style="margin-bottom: 16px; border: 1px dashed var(--terra-primary); color: var(--terra-primary); background: rgba(200,90,50,0.08); font-weight:600; padding:10px;">
-          ⚡ Auto-Fill Judge Credentials (sih_judge_admin)
+          ⚡ Auto-Fill Officer Credentials (officer_admin)
         </button>
 
         <div style="margin-bottom: 12px;">
-          <label style="display:block; font-size:12px; font-weight:600; color:var(--charcoal); margin-bottom:4px;">Username</label>
-          <input id="login-username" type="text" value="sih_judge_admin" style="width:100%; box-sizing:border-box; padding:8px 12px; border:1px solid var(--taupe-dark); border-radius:var(--radius-sm); font-family:var(--font-mono); font-size:13px;" />
+          <label style="display:block; font-size:12px; font-weight:600; color:var(--charcoal); margin-bottom:4px;">Officer Username</label>
+          <input id="login-username" type="text" value="officer_admin" style="width:100%; box-sizing:border-box; padding:8px 12px; border:1px solid var(--taupe-dark); border-radius:var(--radius-sm); font-family:var(--font-mono); font-size:13px;" />
         </div>
         <div style="margin-bottom: 18px;">
-          <label style="display:block; font-size:12px; font-weight:600; color:var(--charcoal); margin-bottom:4px;">Password</label>
+          <label style="display:block; font-size:12px; font-weight:600; color:var(--charcoal); margin-bottom:4px;">Officer Password</label>
           <input id="login-password" type="password" value="BhuSetu@2026" style="width:100%; box-sizing:border-box; padding:8px 12px; border:1px solid var(--taupe-dark); border-radius:var(--radius-sm); font-family:var(--font-mono); font-size:13px;" />
         </div>
         <div id="login-error-msg" style="color:var(--critical-red); font-size:12px; margin-bottom:12px; display:none;"></div>
