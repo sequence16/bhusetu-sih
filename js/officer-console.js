@@ -162,17 +162,94 @@ BhuSetu.OfficerConsole = {
 
     const b = (parcel.building && parcel.building.detected) ? parcel.building.detected : null;
     const drone = document.getElementById('drone-truth-content');
+    const violations = parcel.violations || [];
+    
     if (drone) {
+        let violationsListHtml = '';
+        if (violations.length > 0) {
+            violationsListHtml = `
+              <div style="margin-top:8px; padding-top:8px; border-top:1px solid var(--taupe);">
+                <span style="font-weight:600; font-size:12px; color:var(--critical-red);">Identified Infringements (${violations.length}):</span>
+                <ul style="margin:4px 0 0 0; padding-left:16px; font-size:12px; list-style-type:disc;">
+                  ${violations.map(v => `
+                    <li style="margin-bottom:4px;">
+                      <strong style="color:${v.severity === 'CRITICAL' ? 'var(--critical-red)' : 'var(--warning-amber)'};">[${v.severity}]</strong>
+                      <strong>${v.type || 'VIOLATION'}:</strong> ${v.description}
+                      ${v.encroachment_area_sqm ? `<span style="font-family:var(--font-mono); font-size:11px; color:var(--critical-red);"> (${v.encroachment_area_sqm} m²)</span>` : ''}
+                    </li>
+                  `).join('')}
+                </ul>
+              </div>
+            `;
+        }
+
         drone.innerHTML = `
           <div style="font-size:13px; line-height:1.6;">
             <p><strong>Detected Structure:</strong> ${b ? b.type : 'Open Land / Agricultural'}</p>
             ${b ? `<p><strong>Photogrammetry Height:</strong> ${b.height} m (Floors: ${b.floors})</p><p><strong>Detected FAR:</strong> ${b.far}</p>` : ''}
-            <p><strong>Active Violations:</strong> <span style="font-weight:700; color:${(parcel.violations && parcel.violations.length) ? 'var(--critical-red)' : 'var(--safe-green)'};">${parcel.violations ? parcel.violations.length : 0} Detected</span></p>
-            <div id="spatial-backend-telemetry" style="margin-top:6px; font-size:11px; color:var(--clay-mid); border-top:1px dashed var(--taupe); padding-top:4px;">
+            <p><strong>Active Violations:</strong> <span style="font-weight:700; color:${violations.length ? 'var(--critical-red)' : 'var(--safe-green)'};">${violations.length} Detected</span></p>
+            ${violationsListHtml}
+            <div id="spatial-backend-telemetry" style="margin-top:8px; font-size:11px; color:var(--clay-mid); border-top:1px dashed var(--taupe); padding-top:6px;">
               Spatial verification active...
             </div>
           </div>
         `;
+    }
+
+    // Render detailed statutory infringement dossier below the 3-way corroboration grid
+    const violContainer = document.getElementById('officer-violations-container');
+    if (violContainer) {
+        if (violations.length === 0) {
+            violContainer.innerHTML = `
+              <div style="background:rgba(45,90,39,0.08); border:1px solid var(--safe-green); border-radius:var(--radius-md); padding:12px 16px; display:flex; align-items:center; gap:10px;">
+                <span style="font-size:18px;">✅</span>
+                <div>
+                  <strong style="color:var(--safe-green); font-size:13px;">Statutory Compliance Verified</strong>
+                  <div style="font-size:12px; color:var(--charcoal);">No buffer encroachments, zoning mismatches, or structural height breaches recorded for this land parcel.</div>
+                </div>
+              </div>
+            `;
+        } else {
+            violContainer.innerHTML = `
+              <div style="background:var(--bone); border:1px solid var(--taupe); border-radius:var(--radius-md); padding:16px; box-shadow:var(--shadow-sm);">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; border-bottom:1px solid var(--taupe); padding-bottom:8px;">
+                  <h4 style="margin:0; font-size:14px; color:var(--critical-red); text-transform:uppercase; letter-spacing:0.5px;">
+                    ⚠️ Statutory Infringement Dossier (${violations.length} Active ${violations.length === 1 ? 'Violation' : 'Violations'})
+                  </h4>
+                  <span class="badge" style="background:var(--critical-red); color:#fff; font-size:11px; font-weight:700; padding:3px 8px; border-radius:10px;">
+                    ACTION REQUIRED
+                  </span>
+                </div>
+                <div style="display:flex; flex-direction:column; gap:10px;">
+                  ${violations.map((v, i) => {
+                    const isCrit = v.severity === 'CRITICAL';
+                    const borderCol = isCrit ? 'var(--critical-red)' : 'var(--warning-amber)';
+                    const bgCol = isCrit ? 'rgba(185,28,28,0.06)' : 'rgba(217,119,6,0.06)';
+                    return `
+                      <div style="background:${bgCol}; border-left:4px solid ${borderCol}; border:1px solid var(--taupe); border-left-width:4px; border-radius:var(--radius-sm); padding:12px;">
+                        <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:4px; flex-wrap:wrap; gap:6px;">
+                          <span style="font-weight:700; font-size:13px; color:var(--charcoal);">
+                            ${i + 1}. ${v.description || v.type}
+                          </span>
+                          <span style="font-size:11px; font-weight:700; color:${borderCol}; background:var(--bone); padding:2px 6px; border-radius:4px; border:1px solid var(--taupe);">
+                            ${v.severity} • ${v.id || 'V-STAT'}
+                          </span>
+                        </div>
+                        <div style="font-size:12px; color:var(--charcoal); margin-bottom:6px; line-height:1.5;">
+                          ${v.details || 'Infringement detected during GIS vector corroboration against master survey boundary.'}
+                        </div>
+                        ${v.encroachment_area_sqm ? `
+                          <div style="font-size:11px; font-family:var(--font-mono); color:var(--critical-red); font-weight:600;">
+                            📐 Encroachment Extent: ${Number(v.encroachment_area_sqm).toLocaleString()} m²
+                          </div>
+                        ` : ''}
+                      </div>
+                    `;
+                  }).join('')}
+                </div>
+              </div>
+            `;
+        }
     }
   },
 
