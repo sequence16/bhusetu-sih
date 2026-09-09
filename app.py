@@ -96,21 +96,16 @@ def officer_login():
 # ---------------------------------------------------------
 
 @app.route("/api/parcels", methods=["GET"])
-def get_parcels():
-    """Serve harvested spatial cadastral features as authentic GeoJSON"""
-    global PARCELS
-    if not PARCELS or not PARCELS.get("features"):
-        PARCELS = load_parcels()
-    return jsonify(PARCELS)
+def get_all_parcels():
+    """Serves the authoritative multi-source GeoJSON parcel layer"""
+    parcels = load_parcels()
+    return jsonify(parcels)
 
 @app.route("/api/parcels/<ulpin>", methods=["GET"])
-def get_parcel(ulpin):
-    """Query parcel by 14-digit ULPIN or State Survey Number"""
-    global PARCELS
-    if not PARCELS or not PARCELS.get("features"):
-        PARCELS = load_parcels()
-
-    for feat in PARCELS["features"]:
+def get_parcel_by_ulpin(ulpin):
+    """Retrieves specific cadastral plot record with connected registry documents"""
+    parcels = load_parcels()
+    for feat in parcels.get("features", []):
         props = feat.get("properties", {})
         if (props.get("ulpin") == ulpin or 
             props.get("state_survey_no") == ulpin or 
@@ -126,12 +121,9 @@ def get_parcel(ulpin):
 @app.route("/api/conflicts", methods=["GET"])
 def get_officer_triage():
     """Returns prioritized triage queue of parcels requiring statutory enforcement"""
-    global PARCELS
-    if not PARCELS or not PARCELS.get("features"):
-        PARCELS = load_parcels()
-
+    parcels = load_parcels()
     violations = [
-        f for f in PARCELS["features"] 
+        f for f in parcels.get("features", []) 
         if f.get("properties", {}).get("dispute_tag") != "CLEAN" or f.get("properties", {}).get("status") != "CLEAN"
     ]
     return jsonify({
