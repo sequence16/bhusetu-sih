@@ -1,477 +1,934 @@
 window.BhuSetu = window.BhuSetu || {};
 
 window.BhuSetu.SeedData = (function() {
-  function makePolygon(coords) {
-    return {
-      type: 'Polygon',
-      coordinates: [coords]
-    };
-  }
-
-  function makeBox(lon, lat, size) {
-    return makePolygon([
-      [lon - size, lat - size],
-      [lon + size, lat - size],
-      [lon + size, lat + size],
-      [lon - size, lat + size],
-      [lon - size, lat - size]
-    ]);
-  }
-
   const parcels = [
-    {
-      id: 'parcel-1',
-      ulpin: '14-3261-5499-2024',
-      surveyNumber: 'TS-SNG-AMP-433',
-      displayId: '14-3261-5499-2024',
-      status: 'CLEAN',
-      trustScore: 95,
-      location: {
-        state: 'Telangana',
-        district: 'Sangareddy',
-        mandal: 'Ameenpur',
-        village: 'Sultanpur',
-        dmvCode: '1737006'
+  {
+    "id": "parcel-1",
+    "ulpin": "14-1029-4401-2026",
+    "survey_number": "TS-SNG-AMP-433/A",
+    "state": "Telangana",
+    "district": "Sangareddy",
+    "mandal": "Ameenpur",
+    "village": "Sultanpur",
+    "status": "CLEAN",
+    "trust_score": 96,
+    "trust_grade": "A",
+    "owner_name": "Ramesh Reddy",
+    "owner_masked": "R***sh R***dy",
+    "owner_type": "Individual Freehold",
+    "ror_area": 36938,
+    "gis_area": 36942,
+    "regional_unit": "SQ_YARD",
+    "regional_value": 44177.5,
+    "zoning": "Residential Zone R1",
+    "tax_status": "Paid",
+    "tax_last_paid": "2026-01-15",
+    "tax_amount": "\u20b912,450",
+    "isolation_score": 0.08,
+    "building": {
+      "sanctioned": {
+        "type": "Independent Villa G+2",
+        "height": 9.5,
+        "floors": 3,
+        "far": 1.4
       },
-      owner: {
-        name: 'Ramesh Reddy',
-        maskedName: 'R***y',
-        type: 'Individual'
-      },
-      area: {
-        ror: 36938,
-        gis: 36950,
-        unit: 'sqm'
-      },
-      zoning: 'Residential',
-      tax: {
-        status: 'Paid',
-        lastPaid: '2024-01-15',
-        annualAmount: 12500
-      },
-      encumbrances: [],
-      building: {
-        sanctioned: { type: 'Residential', height: 12, floors: 3, far: 1.5 },
-        detected: { type: 'Residential', height: 12, floors: 3, far: 1.5 }
-      },
-      violations: [],
-      isolationScore: 0.1,
-      geometry: makePolygon([
-        [78.3268252, 17.5507838], [78.3267109, 17.5498922], [78.3266829, 17.5497267],
-        [78.3267256, 17.5496279], [78.3269224, 17.5493723], [78.3270519, 17.5492464],
-        [78.3269223, 17.5491162], [78.3267705, 17.5489262], [78.3265756, 17.548764],
-        [78.3264361, 17.5486605], [78.3263017, 17.548731], [78.3253291, 17.5493798],
-        [78.3251879, 17.549468], [78.3251876, 17.5496517], [78.3251673, 17.5503715],
-        [78.3251601, 17.5506272], [78.3251545, 17.5507833], [78.325301, 17.5508061],
-        [78.3254571, 17.5508232], [78.3257798, 17.5508578], [78.3259246, 17.5508743],
-        [78.3261047, 17.5508567], [78.3266608, 17.5508043], [78.3268252, 17.5507838]
-      ]),
-      buildingFootprint: null,
-      sanctionedFootprint: null,
-      bufferZones: []
+      "detected": {
+        "type": "Independent Villa G+2",
+        "height": 9.4,
+        "floors": 3,
+        "far": 1.38
+      }
     },
-    {
-      id: 'parcel-2',
-      ulpin: '14-3253-5484-2024',
-      surveyNumber: 'TS-SNG-AMP-453',
-      displayId: 'TS-SNG-AMP-453',
-      status: 'WARNING',
-      trustScore: 65,
-      location: {
-        state: 'Telangana',
-        district: 'Sangareddy',
-        mandal: 'Ameenpur',
-        village: 'Sultanpur',
-        dmvCode: '1737006'
-      },
-      owner: {
-        name: 'Suresh Kumar',
-        maskedName: 'S***r',
-        type: 'Individual'
-      },
-      area: {
-        ror: 20787,
-        gis: 21500,
-        unit: 'sqm'
-      },
-      zoning: 'Residential',
-      tax: {
-        status: 'Paid',
-        lastPaid: '2023-11-20',
-        annualAmount: 8400
-      },
-      encumbrances: ['Bank Loan Pending'],
-      building: {
-        sanctioned: { type: 'Residential', height: 9, floors: 2, far: 1.2 },
-        detected: { type: 'Residential', height: 9, floors: 2, far: 1.2 }
-      },
-      violations: [{ severity: 'WARNING', description: 'Boundary overlap dispute with parcel 433', details: 'System flagged: Boundary overlap dispute with parcel 433' }],
-      isolationScore: 0.3,
-      geometry: makePolygon([
-        [78.3264361, 17.5486605], [78.3263458, 17.5485393], [78.3262224, 17.5484006],
-        [78.3260757, 17.5482836], [78.3259027, 17.5482551], [78.3256621, 17.5482185],
-        [78.3254785, 17.5481884], [78.3252891, 17.5481159], [78.3250726, 17.5480006],
-        [78.324486, 17.5479841], [78.3240435, 17.5479747], [78.3239063, 17.5479559],
-        [78.3240458, 17.548062], [78.3244264, 17.5483414], [78.3246997, 17.5486207],
-        [78.3249701, 17.5489624], [78.3251412, 17.5493092], [78.3251879, 17.549468],
-        [78.3253291, 17.5493798], [78.3263017, 17.548731], [78.3264361, 17.5486605]
-      ]),
-      buildingFootprint: null,
-      sanctionedFootprint: null,
-      bufferZones: []
+    "violations": [],
+    "buffer_zones": [],
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            78.3268252,
+            17.5507838
+          ],
+          [
+            78.3267109,
+            17.5498922
+          ],
+          [
+            78.3266829,
+            17.5497267
+          ],
+          [
+            78.3267256,
+            17.5496279
+          ],
+          [
+            78.3269224,
+            17.5493723
+          ],
+          [
+            78.3270519,
+            17.5492464
+          ],
+          [
+            78.3269223,
+            17.5491162
+          ],
+          [
+            78.3267705,
+            17.5489262
+          ],
+          [
+            78.3265756,
+            17.548764
+          ],
+          [
+            78.3264361,
+            17.5486605
+          ],
+          [
+            78.3263017,
+            17.548731
+          ],
+          [
+            78.3253291,
+            17.5493798
+          ],
+          [
+            78.3251879,
+            17.549468
+          ],
+          [
+            78.3251876,
+            17.5496517
+          ],
+          [
+            78.3251673,
+            17.5503715
+          ],
+          [
+            78.3251601,
+            17.5506272
+          ],
+          [
+            78.3251545,
+            17.5507833
+          ],
+          [
+            78.325301,
+            17.5508061
+          ],
+          [
+            78.3254571,
+            17.5508232
+          ],
+          [
+            78.3257798,
+            17.5508578
+          ],
+          [
+            78.3259246,
+            17.5508743
+          ],
+          [
+            78.3261047,
+            17.5508567
+          ],
+          [
+            78.3266608,
+            17.5508043
+          ],
+          [
+            78.3268252,
+            17.5507838
+          ]
+        ]
+      ]
     },
-    {
-      id: 'parcel-3',
-      ulpin: '14-3241-5488-2024',
-      surveyNumber: 'TS-SNG-AMP-454',
-      displayId: '14-3241-5488-2024',
-      status: 'CLEAN',
-      trustScore: 92,
-      location: {
-        state: 'Telangana',
-        district: 'Sangareddy',
-        mandal: 'Ameenpur',
-        village: 'Sultanpur',
-        dmvCode: '1737006'
-      },
-      owner: {
-        name: 'Venkatesh Rao',
-        maskedName: 'V***o',
-        type: 'Individual'
-      },
-      area: {
-        ror: 22025,
-        gis: 21980,
-        unit: 'sqm'
-      },
-      zoning: 'Residential',
-      tax: {
-        status: 'Paid',
-        lastPaid: '2024-02-10',
-        annualAmount: 9000
-      },
-      encumbrances: [],
-      building: {
-        sanctioned: { type: 'Residential', height: 10, floors: 3, far: 1.4 },
-        detected: { type: 'Residential', height: 10, floors: 3, far: 1.4 }
-      },
-      violations: [],
-      isolationScore: 0.05,
-      geometry: makePolygon([
-        [78.3239063, 17.5479559], [78.3235785, 17.5479245], [78.3235368, 17.5489554],
-        [78.3233289, 17.5490957], [78.3232284, 17.54917], [78.3232938, 17.5493826],
-        [78.3234425, 17.5493942], [78.3239444, 17.5494149], [78.3250398, 17.5494595],
-        [78.3251879, 17.549468], [78.3251412, 17.5493092], [78.3249701, 17.5489624],
-        [78.3246997, 17.5486207], [78.3244264, 17.5483414], [78.3240458, 17.548062],
-        [78.3239063, 17.5479559]
-      ]),
-      buildingFootprint: null,
-      sanctionedFootprint: null,
-      bufferZones: []
+    "displayId": "14-1029-4401-2026",
+    "surveyNumber": "TS-SNG-AMP-433/A",
+    "trustScore": 96,
+    "trustGrade": "A",
+    "classification": "Residential Zone R1",
+    "location": {
+      "state": "Telangana",
+      "district": "Sangareddy",
+      "mandal": "Ameenpur",
+      "village": "Sultanpur"
     },
-    {
-      id: 'parcel-4',
-      ulpin: '14-2117-1051-2024',
-      surveyNumber: 'TS-RGD-FQN-33',
-      displayId: 'TS-RGD-FQN-33',
-      status: 'CLEAN',
-      trustScore: 88,
-      location: {
-        state: 'Telangana',
-        district: 'Rangareddy',
-        mandal: 'Farooqnagar',
-        village: 'Nagulapalle',
-        dmvCode: '1412005'
-      },
-      owner: {
-        name: 'Kavitha Devi',
-        maskedName: 'K***i',
-        type: 'Individual'
-      },
-      area: {
-        ror: 34310,
-        gis: 34305,
-        unit: 'sqm'
-      },
-      zoning: 'Agricultural',
-      tax: {
-        status: 'Paid',
-        lastPaid: '2023-10-05',
-        annualAmount: 1500
-      },
-      encumbrances: [],
-      building: {
-        sanctioned: null,
-        detected: null
-      },
-      violations: [],
-      isolationScore: 0.8,
-      geometry: makePolygon([
-        [78.2120047, 17.1036067], [78.2119449, 17.1034851], [78.2114956, 17.1042482],
-        [78.2113501, 17.1059758], [78.2112404, 17.1061303], [78.2112333, 17.1071158],
-        [78.2124685, 17.1067785], [78.2120047, 17.1036067]
-      ]),
-      buildingFootprint: null,
-      sanctionedFootprint: null,
-      bufferZones: []
+    "owner": {
+      "name": "Ramesh Reddy",
+      "maskedName": "R***sh R***dy",
+      "type": "Individual Freehold"
     },
-    {
-      id: 'parcel-5',
-      ulpin: '14-2131-1041-2024',
-      surveyNumber: 'TS-RGD-FQN-34',
-      displayId: '14-2131-1041-2024',
-      status: 'WARNING',
-      trustScore: 60,
-      location: {
-        state: 'Telangana',
-        district: 'Rangareddy',
-        mandal: 'Farooqnagar',
-        village: 'Nagulapalle',
-        dmvCode: '1412005'
-      },
-      owner: {
-        name: 'Murali Krishna',
-        maskedName: 'M***a',
-        type: 'Individual'
-      },
-      area: {
-        ror: 74161,
-        gis: 74500,
-        unit: 'sqm'
-      },
-      zoning: 'Agricultural',
-      tax: {
-        status: 'Pending',
-        lastPaid: '2022-05-12',
-        annualAmount: 3200
-      },
-      encumbrances: ['Mutation Pending'],
-      building: {
-        sanctioned: null,
-        detected: null
-      },
-      violations: [{ severity: 'WARNING', description: 'Mutation Process Incomplete', details: 'System flagged: Mutation Process Incomplete' }],
-      isolationScore: 0.75,
-      geometry: makePolygon([
-        [78.2141376, 17.1046907], [78.2136124, 17.103907], [78.213496, 17.1034904],
-        [78.2132109, 17.1020445], [78.2131281, 17.1018801], [78.212039, 17.1033349],
-        [78.2119449, 17.1034851], [78.2120047, 17.1036067], [78.2124685, 17.1067785],
-        [78.2133064, 17.1065123], [78.2140068, 17.1048343], [78.2141376, 17.1046907]
-      ]),
-      buildingFootprint: null,
-      sanctionedFootprint: null,
-      bufferZones: []
+    "area": {
+      "ror": 36938,
+      "gis": 36942,
+      "regionalUnit": "SQ_YARD",
+      "regionalValue": 44177.5
     },
-    {
-      id: 'parcel-6',
-      ulpin: '14-4307-1090-2024',
-      surveyNumber: 'TS-WRG-ELK-876',
-      displayId: 'TS-WRG-ELK-876',
-      status: 'CRITICAL',
-      trustScore: 25,
-      location: {
-        state: 'Telangana',
-        district: 'Warangal_Urban',
-        mandal: 'Elkathurthi',
-        village: 'Elkathurthi',
-        dmvCode: '2051005'
-      },
-      owner: {
-        name: 'Srinivas Goud',
-        maskedName: 'S***d',
-        type: 'Individual'
-      },
-      area: {
-        ror: 69291,
-        gis: 71000,
-        unit: 'sqm'
-      },
-      zoning: 'Mixed',
-      tax: {
-        status: 'Overdue',
-        lastPaid: '2020-03-10',
-        annualAmount: 18000
-      },
-      encumbrances: ['Legal Dispute Active'],
-      building: {
-        sanctioned: { type: 'Commercial', height: 15, floors: 4, far: 2.0 },
-        detected: { type: 'Commercial', height: 15, floors: 5, far: 2.5 }
-      },
-      violations: ['Encroachment on government land', 'Unauthorized additional floor'],
-      isolationScore: 0.2,
-      geometry: makePolygon([
-        [79.4320794, 18.1100407], [79.4320843, 18.1098499], [79.4320774, 18.1082208],
-        [79.4320756, 18.1080168], [79.4320627, 18.1080225], [79.4320057, 18.1080479],
-        [79.4318686, 18.1081088], [79.4313244, 18.1084211], [79.4312945, 18.1084343],
-        [79.4308, 18.1086524], [79.430415, 18.1088222], [79.4303613, 18.1088459],
-        [79.4303529, 18.1087898], [79.4302892, 18.1083622], [79.4302718, 18.1082365],
-        [79.4301011, 18.1082837], [79.4285277, 18.1088534], [79.428379, 18.1089022],
-        [79.4284816, 18.1089974], [79.4295955, 18.1101529], [79.4297796, 18.1103437],
-        [79.429868, 18.1104717], [79.4300876, 18.1104326], [79.4318882, 18.110081],
-        [79.4320794, 18.1100407]
-      ]),
-      buildingFootprint: null,
-      sanctionedFootprint: null,
-      bufferZones: []
+    "tax": {
+      "status": "Paid",
+      "lastPaid": "2026-01-15",
+      "amount": "\u20b912,450"
     },
-    {
-      id: 'parcel-7',
-      ulpin: '14-3635-5962-2024',
-      surveyNumber: 'TS-PDP-PDP-82',
-      displayId: '14-3635-5962-2024',
-      status: 'CLEAN',
-      trustScore: 98,
-      location: {
-        state: 'Telangana',
-        district: 'Peddapalli',
-        mandal: 'Peddapalli',
-        village: 'Peddakalvala',
-        dmvCode: '2016015'
-      },
-      owner: {
-        name: 'Laxmi Narayana',
-        maskedName: 'L***a',
-        type: 'Individual'
-      },
-      area: {
-        ror: 41081,
-        gis: 41075,
-        unit: 'sqm'
-      },
-      zoning: 'Agricultural',
-      tax: {
-        status: 'Paid',
-        lastPaid: '2024-03-01',
-        annualAmount: 1200
-      },
-      encumbrances: [],
-      building: {
-        sanctioned: null,
-        detected: null
-      },
-      violations: [],
-      isolationScore: 0.9,
-      geometry: makePolygon([
-        [79.3634755, 18.5973899], [79.3641444, 18.597151], [79.36511, 18.5966913],
-        [79.364262, 18.5953522], [79.3642071, 18.5952677], [79.3640271, 18.5953651],
-        [79.3638466, 18.5954571], [79.3633963, 18.5956894], [79.3632901, 18.5957689],
-        [79.363141, 18.5958456], [79.362752, 18.5961271], [79.3625193, 18.5961083],
-        [79.3625951, 18.5963379], [79.3629836, 18.5975335], [79.3634755, 18.5973899]
-      ]),
-      buildingFootprint: null,
-      sanctionedFootprint: null,
-      bufferZones: []
+    "bufferZones": [],
+    "buildingFootprint": null,
+    "sanctionedFootprint": null
+  },
+  {
+    "id": "parcel-2",
+    "ulpin": "14-3048-8821-2026",
+    "survey_number": "TS-HYD-MDP-54/2",
+    "state": "Telangana",
+    "district": "Hyderabad",
+    "mandal": "Shaikpet",
+    "village": "Madhapur",
+    "status": "CRITICAL",
+    "trust_score": 14,
+    "trust_grade": "E",
+    "owner_name": "Dilip Reddy",
+    "owner_masked": "D***ip R***dy",
+    "owner_type": "Private Commercial Entity",
+    "ror_area": 3400,
+    "gis_area": 3410,
+    "regional_unit": "GUNTHA",
+    "regional_value": 33.61,
+    "zoning": "Restricted - Waterbody Periphery Buffer",
+    "tax_status": "Pending Verification",
+    "tax_last_paid": "2024-03-20",
+    "tax_amount": "\u20b945,800",
+    "isolation_score": 0.94,
+    "building": {
+      "sanctioned": null,
+      "detected": {
+        "type": "Commercial Warehouse & Shed",
+        "height": 8.5,
+        "floors": 1,
+        "far": 0.0
+      }
     },
-    {
-      id: 'parcel-8',
-      ulpin: '14-2082-0050-2024',
-      surveyNumber: 'TS-NLG-KNL-107',
-      displayId: 'TS-NLG-KNL-107',
-      status: 'WARNING',
-      trustScore: 70,
-      location: {
-        state: 'Telangana',
-        district: 'Nalgonda',
-        mandal: 'Kanagal',
-        village: 'Parvathagiril',
-        dmvCode: '2339010'
-      },
-      owner: {
-        name: 'Government of Telangana',
-        maskedName: 'G***a',
-        type: 'Government'
-      },
-      area: {
-        ror: 31953,
-        gis: 31800,
-        unit: 'sqm'
-      },
-      zoning: 'Agricultural',
-      tax: {
-        status: 'Overdue',
-        lastPaid: '2021-08-11',
-        annualAmount: 1100
-      },
-      encumbrances: [],
-      building: {
-        sanctioned: null,
-        detected: null
-      },
-      violations: [{ severity: 'WARNING', description: 'Tax Overdue > 2 years', details: 'System flagged: Tax Overdue > 2 years' }],
-      isolationScore: 0.6,
-      geometry: makePolygon([
-        [79.2090745, 17.0055173], [79.2085873, 17.0038591], [79.2071669, 17.0039407],
-        [79.2073921, 17.0044959], [79.2080505, 17.0061188], [79.2084717, 17.0058714],
-        [79.2090745, 17.0055173]
-      ]),
-      buildingFootprint: null,
-      sanctionedFootprint: null,
-      bufferZones: []
+    "violations": [
+      {
+        "id": "V-HYDRAA-01",
+        "severity": "CRITICAL",
+        "type": "FTL_ENCROACHMENT",
+        "description": "CRITICAL: Illegal Construction inside Durgam Cheruvu FTL Buffer (HYDRAA Act)",
+        "details": "Commercial warehouse structure (1,850 m\u00b2) extends 18.2 meters past notified Full Tank Level (FTL) 30m buffer boundary. Demolition notice pending.",
+        "encroachment_area_sqm": 1850.0
+      }
+    ],
+    "buffer_zones": [
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Durgam Cheruvu FTL Buffer (30m)",
+          "type": "waterbody_ftl"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                78.3797,
+                17.4337
+              ],
+              [
+                78.381,
+                17.4346
+              ],
+              [
+                78.3827,
+                17.4352
+              ],
+              [
+                78.3842,
+                17.435
+              ],
+              [
+                78.3853,
+                17.4342
+              ],
+              [
+                78.3858,
+                17.4327
+              ],
+              [
+                78.3855,
+                17.4311
+              ],
+              [
+                78.3844,
+                17.43
+              ],
+              [
+                78.3826,
+                17.4297
+              ],
+              [
+                78.381,
+                17.4304
+              ],
+              [
+                78.38,
+                17.4316
+              ],
+              [
+                78.3797,
+                17.4337
+              ]
+            ]
+          ]
+        }
+      }
+    ],
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            78.3849,
+            17.4344
+          ],
+          [
+            78.3857,
+            17.4344
+          ],
+          [
+            78.3857,
+            17.4338
+          ],
+          [
+            78.3849,
+            17.4338
+          ],
+          [
+            78.3849,
+            17.4344
+          ]
+        ]
+      ]
     },
-    {
-      id: 'parcel-9',
-      ulpin: '14-5657-6995-2024',
-      surveyNumber: 'TS-SDP-MLG-210',
-      displayId: '14-5657-6995-2024',
-      status: 'CRITICAL',
-      trustScore: 40,
-      location: {
-        state: 'Telangana',
-        district: 'Siddipet',
-        mandal: 'Mulug',
-        village: 'Achaipally',
-        dmvCode: '1745023'
+    "displayId": "14-3048-8821-2026",
+    "surveyNumber": "TS-HYD-MDP-54/2",
+    "trustScore": 14,
+    "trustGrade": "E",
+    "classification": "Restricted - Waterbody Periphery Buffer",
+    "location": {
+      "state": "Telangana",
+      "district": "Hyderabad",
+      "mandal": "Shaikpet",
+      "village": "Madhapur"
+    },
+    "owner": {
+      "name": "Dilip Reddy",
+      "maskedName": "D***ip R***dy",
+      "type": "Private Commercial Entity"
+    },
+    "area": {
+      "ror": 3400,
+      "gis": 3410,
+      "regionalUnit": "GUNTHA",
+      "regionalValue": 33.61
+    },
+    "tax": {
+      "status": "Pending Verification",
+      "lastPaid": "2024-03-20",
+      "amount": "\u20b945,800"
+    },
+    "bufferZones": [
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Durgam Cheruvu FTL Buffer (30m)",
+          "type": "waterbody_ftl"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                78.3797,
+                17.4337
+              ],
+              [
+                78.381,
+                17.4346
+              ],
+              [
+                78.3827,
+                17.4352
+              ],
+              [
+                78.3842,
+                17.435
+              ],
+              [
+                78.3853,
+                17.4342
+              ],
+              [
+                78.3858,
+                17.4327
+              ],
+              [
+                78.3855,
+                17.4311
+              ],
+              [
+                78.3844,
+                17.43
+              ],
+              [
+                78.3826,
+                17.4297
+              ],
+              [
+                78.381,
+                17.4304
+              ],
+              [
+                78.38,
+                17.4316
+              ],
+              [
+                78.3797,
+                17.4337
+              ]
+            ]
+          ]
+        }
+      }
+    ],
+    "buildingFootprint": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            78.3849,
+            17.4344
+          ],
+          [
+            78.3857,
+            17.4344
+          ],
+          [
+            78.3857,
+            17.4338
+          ],
+          [
+            78.3849,
+            17.4338
+          ],
+          [
+            78.3849,
+            17.4344
+          ]
+        ]
+      ]
+    },
+    "sanctionedFootprint": null
+  },
+  {
+    "id": "parcel-3",
+    "ulpin": "07-5501-1084-2026",
+    "survey_number": "DL-MCD-LJP-108/4",
+    "state": "Delhi NCT",
+    "district": "South Delhi",
+    "mandal": "Defence Colony",
+    "village": "Lajpat Nagar",
+    "status": "WARNING",
+    "trust_score": 32,
+    "trust_grade": "D",
+    "owner_name": "Anand Sharma",
+    "owner_masked": "A***nd S***ma",
+    "owner_type": "Joint Family Ownership",
+    "ror_area": 220,
+    "gis_area": 218,
+    "regional_unit": "SQ_YARD",
+    "regional_value": 263.12,
+    "zoning": "Mixed-Use Commercial/Residential (MU-1)",
+    "tax_status": "Overdue",
+    "tax_last_paid": "2023-08-11",
+    "tax_amount": "\u20b918,200",
+    "isolation_score": 0.89,
+    "building": {
+      "sanctioned": {
+        "type": "Residential G+2",
+        "height": 9.0,
+        "floors": 3,
+        "far": 1.5
       },
-      owner: {
-        name: 'Pratap Singh',
-        maskedName: 'P***h',
-        type: 'Individual'
-      },
-      area: {
-        ror: 97106,
-        gis: 100500,
-        unit: 'sqm'
-      },
-      zoning: 'Agricultural',
-      tax: {
-        status: 'Paid',
-        lastPaid: '2024-01-05',
-        annualAmount: 4500
-      },
-      encumbrances: ['Forest Dept Notice'],
-      building: {
-        sanctioned: null,
-        detected: null
-      },
-      violations: [{ severity: 'WARNING', description: 'Forest boundary violation detected', details: 'System flagged: Forest boundary violation detected' }],
-      isolationScore: 0.85,
-      geometry: makePolygon([
-        [78.5658372, 17.700329], [78.5673283, 17.700093], [78.5683436, 17.7006818],
-        [78.5675488, 17.6983421], [78.5661605, 17.6980903], [78.5660082, 17.6981999],
-        [78.5656047, 17.6984904], [78.5637658, 17.6996031], [78.5629881, 17.7000665],
-        [78.5639235, 17.7007625], [78.5658372, 17.700329]
-      ]),
-      buildingFootprint: null,
-      sanctionedFootprint: null,
-      bufferZones: []
+      "detected": {
+        "type": "Commercial-Residential G+5",
+        "height": 18.5,
+        "floors": 6,
+        "far": 3.8
+      }
+    },
+    "violations": [
+      {
+        "id": "V-MCD-01",
+        "severity": "WARNING",
+        "type": "HEIGHT_AND_FAR_VIOLATION",
+        "description": "STRUCTURAL RISK: Unapproved G+5 Multi-Storey Overbuild (MCD Sanction Limit 9m)",
+        "details": "Sanction plan authorizes G+2 (9.0m, FAR 1.5). Drone photogrammetry detected G+5 structure (18.5m, FAR 3.8) with 0m setback from adjacent properties.",
+        "encroachment_area_sqm": 85.0
+      }
+    ],
+    "buffer_zones": [],
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            77.2395,
+            28.5698
+          ],
+          [
+            77.2401,
+            28.5699
+          ],
+          [
+            77.2402,
+            28.5694
+          ],
+          [
+            77.2396,
+            28.5693
+          ],
+          [
+            77.2395,
+            28.5698
+          ]
+        ]
+      ]
+    },
+    "displayId": "07-5501-1084-2026",
+    "surveyNumber": "DL-MCD-LJP-108/4",
+    "trustScore": 32,
+    "trustGrade": "D",
+    "classification": "Mixed-Use Commercial/Residential (MU-1)",
+    "location": {
+      "state": "Delhi NCT",
+      "district": "South Delhi",
+      "mandal": "Defence Colony",
+      "village": "Lajpat Nagar"
+    },
+    "owner": {
+      "name": "Anand Sharma",
+      "maskedName": "A***nd S***ma",
+      "type": "Joint Family Ownership"
+    },
+    "area": {
+      "ror": 220,
+      "gis": 218,
+      "regionalUnit": "SQ_YARD",
+      "regionalValue": 263.12
+    },
+    "tax": {
+      "status": "Overdue",
+      "lastPaid": "2023-08-11",
+      "amount": "\u20b918,200"
+    },
+    "bufferZones": [],
+    "buildingFootprint": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            77.2395,
+            28.5698
+          ],
+          [
+            77.2401,
+            28.5699
+          ],
+          [
+            77.2402,
+            28.5694
+          ],
+          [
+            77.2396,
+            28.5693
+          ],
+          [
+            77.2395,
+            28.5698
+          ]
+        ]
+      ]
+    },
+    "sanctionedFootprint": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            77.23965,
+            28.5697
+          ],
+          [
+            77.23995,
+            28.56972
+          ],
+          [
+            77.23998,
+            28.56948
+          ],
+          [
+            77.23968,
+            28.56946
+          ],
+          [
+            77.23965,
+            28.5697
+          ]
+        ]
+      ]
     }
-  ];
+  },
+  {
+    "id": "parcel-4",
+    "ulpin": "14-2204-7102-2026",
+    "survey_number": "TS-RNG-FRQ-33",
+    "state": "Telangana",
+    "district": "Rangareddy",
+    "mandal": "Farooqnagar",
+    "village": "Nagulapalle",
+    "status": "CLEAN",
+    "trust_score": 94,
+    "trust_grade": "A",
+    "owner_name": "Sunita Devi",
+    "owner_masked": "S***ta D**i",
+    "owner_type": "Rural Household (SVAMITVA Title)",
+    "ror_area": 34310,
+    "gis_area": 34305,
+    "regional_unit": "GUNTHA",
+    "regional_value": 339.13,
+    "zoning": "Village Abadi - Habitation",
+    "tax_status": "Paid",
+    "tax_last_paid": "2025-11-04",
+    "tax_amount": "\u20b9650",
+    "isolation_score": 0.12,
+    "building": {
+      "sanctioned": null,
+      "detected": {
+        "type": "Rural Dwelling & Courtyard",
+        "height": 4.5,
+        "floors": 1,
+        "far": 0.0
+      }
+    },
+    "violations": [],
+    "buffer_zones": [],
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            78.2120023,
+            17.1058223
+          ],
+          [
+            78.2132045,
+            17.1054112
+          ],
+          [
+            78.2138902,
+            17.1042331
+          ],
+          [
+            78.2129554,
+            17.1039881
+          ],
+          [
+            78.2118221,
+            17.1046114
+          ],
+          [
+            78.2120023,
+            17.1058223
+          ]
+        ]
+      ]
+    },
+    "displayId": "14-2204-7102-2026",
+    "surveyNumber": "TS-RNG-FRQ-33",
+    "trustScore": 94,
+    "trustGrade": "A",
+    "classification": "Village Abadi - Habitation",
+    "location": {
+      "state": "Telangana",
+      "district": "Rangareddy",
+      "mandal": "Farooqnagar",
+      "village": "Nagulapalle"
+    },
+    "owner": {
+      "name": "Sunita Devi",
+      "maskedName": "S***ta D**i",
+      "type": "Rural Household (SVAMITVA Title)"
+    },
+    "area": {
+      "ror": 34310,
+      "gis": 34305,
+      "regionalUnit": "GUNTHA",
+      "regionalValue": 339.13
+    },
+    "tax": {
+      "status": "Paid",
+      "lastPaid": "2025-11-04",
+      "amount": "\u20b9650"
+    },
+    "bufferZones": [],
+    "buildingFootprint": null,
+    "sanctionedFootprint": null
+  },
+  {
+    "id": "parcel-5",
+    "ulpin": "14-4307-1090-2026",
+    "survey_number": "TS-WRG-ELK-876",
+    "state": "Telangana",
+    "district": "Warangal_Urban",
+    "mandal": "Elkathurthi",
+    "village": "Elkathurthi",
+    "status": "CRITICAL",
+    "trust_score": 18,
+    "trust_grade": "E",
+    "owner_name": "Vikram Patel",
+    "owner_masked": "V***am P***el",
+    "owner_type": "Succession Disputed",
+    "ror_area": 69291,
+    "gis_area": 71000,
+    "regional_unit": "ACRE",
+    "regional_value": 17.12,
+    "zoning": "Agricultural / Govt Common Grazing",
+    "tax_status": "Overdue",
+    "tax_last_paid": "2023-04-12",
+    "tax_amount": "\u20b93,400",
+    "isolation_score": 0.88,
+    "building": {
+      "sanctioned": null,
+      "detected": {
+        "type": "Farm Shed & Boundary Wall",
+        "height": 4.0,
+        "floors": 1,
+        "far": 0.0
+      }
+    },
+    "violations": [
+      {
+        "id": "V-WRG-01",
+        "severity": "CRITICAL",
+        "type": "GOVT_LAND_ENCROACHMENT",
+        "description": "CRITICAL: Area discrepancy & Encroachment on Village Commons",
+        "details": "GIS boundary exceeds RoR area by 1,709 m\u00b2 into designated Government Gauchar land. Contested succession mutation.",
+        "encroachment_area_sqm": 1709.0
+      }
+    ],
+    "buffer_zones": [],
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            79.4312011,
+            18.1098442
+          ],
+          [
+            79.4328445,
+            18.1094112
+          ],
+          [
+            79.4331002,
+            18.1079553
+          ],
+          [
+            79.4318554,
+            18.1074112
+          ],
+          [
+            79.4305112,
+            18.1086221
+          ],
+          [
+            79.4312011,
+            18.1098442
+          ]
+        ]
+      ]
+    },
+    "displayId": "14-4307-1090-2026",
+    "surveyNumber": "TS-WRG-ELK-876",
+    "trustScore": 18,
+    "trustGrade": "E",
+    "classification": "Agricultural / Govt Common Grazing",
+    "location": {
+      "state": "Telangana",
+      "district": "Warangal_Urban",
+      "mandal": "Elkathurthi",
+      "village": "Elkathurthi"
+    },
+    "owner": {
+      "name": "Vikram Patel",
+      "maskedName": "V***am P***el",
+      "type": "Succession Disputed"
+    },
+    "area": {
+      "ror": 69291,
+      "gis": 71000,
+      "regionalUnit": "ACRE",
+      "regionalValue": 17.12
+    },
+    "tax": {
+      "status": "Overdue",
+      "lastPaid": "2023-04-12",
+      "amount": "\u20b93,400"
+    },
+    "bufferZones": [],
+    "buildingFootprint": null,
+    "sanctionedFootprint": null
+  },
+  {
+    "id": "parcel-6",
+    "ulpin": "14-5011-9214-2026",
+    "survey_number": "TS-SDP-MLG-210",
+    "state": "Telangana",
+    "district": "Siddipet",
+    "mandal": "Mulug",
+    "village": "Achaipally",
+    "status": "CRITICAL",
+    "trust_score": 8,
+    "trust_grade": "F",
+    "owner_name": "Rajesh Mahato",
+    "owner_masked": "R***sh M***to",
+    "owner_type": "Encroacher (Forest Fringe)",
+    "ror_area": 97106,
+    "gis_area": 97450,
+    "regional_unit": "ACRE",
+    "regional_value": 24.0,
+    "zoning": "Notified Protected Forest Buffer",
+    "tax_status": "N/A - Forest Land",
+    "tax_last_paid": "N/A",
+    "tax_amount": "N/A",
+    "isolation_score": 0.96,
+    "building": {
+      "sanctioned": null,
+      "detected": {
+        "type": "Excavation Pit & Kiln",
+        "height": 5.0,
+        "floors": 1,
+        "far": 0.0
+      }
+    },
+    "violations": [
+      {
+        "id": "V-FOR-01",
+        "severity": "CRITICAL",
+        "type": "FOREST_ENCROACHMENT",
+        "description": "CRITICAL: Illegal excavation & clearing inside Protected Forest Zone",
+        "details": "Violates Forest Conservation Act Section 2. Commercial clay excavation and kiln detected by drone imagery.",
+        "encroachment_area_sqm": 4200.0
+      }
+    ],
+    "buffer_zones": [],
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            78.5658372,
+            17.700329
+          ],
+          [
+            78.5673283,
+            17.700093
+          ],
+          [
+            78.5683436,
+            17.7006818
+          ],
+          [
+            78.5675488,
+            17.6983421
+          ],
+          [
+            78.5661605,
+            17.6980903
+          ],
+          [
+            78.5660082,
+            17.6981999
+          ],
+          [
+            78.5656047,
+            17.6984904
+          ],
+          [
+            78.5637658,
+            17.6996031
+          ],
+          [
+            78.5629881,
+            17.7000665
+          ],
+          [
+            78.5639235,
+            17.7007625
+          ],
+          [
+            78.5658372,
+            17.700329
+          ]
+        ]
+      ]
+    },
+    "displayId": "14-5011-9214-2026",
+    "surveyNumber": "TS-SDP-MLG-210",
+    "trustScore": 8,
+    "trustGrade": "F",
+    "classification": "Notified Protected Forest Buffer",
+    "location": {
+      "state": "Telangana",
+      "district": "Siddipet",
+      "mandal": "Mulug",
+      "village": "Achaipally"
+    },
+    "owner": {
+      "name": "Rajesh Mahato",
+      "maskedName": "R***sh M***to",
+      "type": "Encroacher (Forest Fringe)"
+    },
+    "area": {
+      "ror": 97106,
+      "gis": 97450,
+      "regionalUnit": "ACRE",
+      "regionalValue": 24.0
+    },
+    "tax": {
+      "status": "N/A - Forest Land",
+      "lastPaid": "N/A",
+      "amount": "N/A"
+    },
+    "bufferZones": [],
+    "buildingFootprint": null,
+    "sanctionedFootprint": null
+  }
+];
 
   return {
-    getAllParcels: function() {
-      return parcels;
-    },
-    getParcelById: function(id) {
-      return parcels.find(p => p.id === id) || null;
-    },
+    getAllParcels: function() { return parcels; },
+    getParcelById: function(id) { return parcels.find(p => p.id === id) || null; },
+    getParcelByULPIN: function(ulpin) { return parcels.find(p => p.ulpin === ulpin || p.displayId === ulpin) || null; },
+    getParcelBySurvey: function(survey) { return parcels.find(p => p.survey_number === survey) || null; },
     searchParcels: function(query) {
+      if (!query) return [];
       const q = query.toLowerCase();
-      return parcels.filter(p => 
-        p.id.toLowerCase().includes(q) || 
-        p.ulpin.toLowerCase().includes(q) ||
-        p.surveyNumber.toLowerCase().includes(q) ||
-        p.owner.name.toLowerCase().includes(q) ||
-        p.location.village.toLowerCase().includes(q)
+      return parcels.filter(p =>
+        (p.id && p.id.toLowerCase().includes(q)) ||
+        (p.ulpin && p.ulpin.toLowerCase().includes(q)) ||
+        (p.survey_number && p.survey_number.toLowerCase().includes(q)) ||
+        (p.owner_name && p.owner_name.toLowerCase().includes(q)) ||
+        (p.village && p.village.toLowerCase().includes(q)) ||
+        (p.district && p.district.toLowerCase().includes(q))
       );
     }
   };

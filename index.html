@@ -55,11 +55,18 @@
       </div>
     </div>
     <div id="header-right">
+      <button id="header-login-btn" class="btn btn-outline" style="color:var(--white); border-color:rgba(255,255,255,0.4); padding:6px 12px; font-size:12px; margin-right:8px;">
+        🏛️ Officer Login (SIH Judge)
+      </button>
+      <div id="auth-status-badge" class="hidden" style="margin-right:8px; font-size:12px; display:inline-flex; align-items:center; gap:6px; background:rgba(45,90,39,0.3); border:1px solid var(--safe-green); padding:4px 8px; border-radius:12px;">
+        <span class="sync-dot" style="background:var(--safe-green);"></span>
+        <span id="auth-user-label" style="font-weight:600; color:var(--white);">Officer Active</span>
+      </div>
       <div id="search-container">
-        <input id="ulpin-search-input" type="text" placeholder="Search ULPIN / Survey No..." autocomplete="off" />
+        <input id="ulpin-search-input" type="text" placeholder="Search 14-digit ULPIN / Survey No..." autocomplete="off" />
         <div id="search-dropdown" class="hidden"></div>
       </div>
-      <div id="sync-status"><span class="sync-dot"></span> Synced 2 min ago</div>
+      <div id="sync-status"><span class="sync-dot"></span> Synced Live</div>
     </div>
   </header>
 
@@ -292,7 +299,7 @@
   </main>
 
   <footer id="app-footer" style="background:var(--charcoal); color:var(--clay-mid); text-align:center; padding:12px; font-size:11px;">
-    BhuSetu v1.0 | Bharat Unified Land Stack | Smart India Hackathon 2026 (SIH26014) | Data Source: TRACGIS Bhunaksha Cadastrals, Telangana
+    BhuSetu v1.0 | Bharat Unified Land Stack | Smart India Hackathon 2026 (SIH26014) | Developed by G V Vibhas | Team Data Dynamos
   </footer>
 
   <!-- ===== AI COPILOT DRAWER ===== -->
@@ -370,6 +377,39 @@
           <h4>Extracted Fields (Vision-LLM/OCR)</h4>
           <pre id="ocr-json-output"></pre>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== OFFICER / JUDGE AUTH MODAL ===== -->
+  <div id="login-modal-overlay" class="modal-overlay hidden">
+    <div id="login-modal" class="modal-content" style="max-width: 440px; padding: 24px; border-radius: var(--radius-lg); background: var(--bone);">
+      <div class="modal-header" style="display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid var(--taupe); padding-bottom: 12px; margin-bottom: 16px;">
+        <h3 style="color: var(--charcoal); margin: 0; font-size: 18px;">🏛️ Officer Authentication</h3>
+        <button id="login-close-btn" class="modal-close" style="background:none; border:none; font-size:20px; cursor:pointer; color:var(--charcoal);">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 13px; color: var(--clay-mid); margin-bottom: 16px;">
+          National Land Records Modernization Programme (NLRMP) Governance Access.
+        </p>
+
+        <!-- Quick 1-Click Evaluation Credentials Button -->
+        <button id="quick-fill-judge-btn" class="btn btn-outline full-width" style="margin-bottom: 16px; border: 1px dashed var(--terra-primary); color: var(--terra-primary); background: rgba(200,90,50,0.08); font-weight:600; padding:10px;">
+          ⚡ Auto-Fill Judge Credentials (sih_judge_admin)
+        </button>
+
+        <div style="margin-bottom: 12px;">
+          <label style="display:block; font-size:12px; font-weight:600; color:var(--charcoal); margin-bottom:4px;">Username</label>
+          <input id="login-username" type="text" value="sih_judge_admin" style="width:100%; box-sizing:border-box; padding:8px 12px; border:1px solid var(--taupe-dark); border-radius:var(--radius-sm); font-family:var(--font-mono); font-size:13px;" />
+        </div>
+        <div style="margin-bottom: 18px;">
+          <label style="display:block; font-size:12px; font-weight:600; color:var(--charcoal); margin-bottom:4px;">Password</label>
+          <input id="login-password" type="password" value="BhuSetu@2026" style="width:100%; box-sizing:border-box; padding:8px 12px; border:1px solid var(--taupe-dark); border-radius:var(--radius-sm); font-family:var(--font-mono); font-size:13px;" />
+        </div>
+        <div id="login-error-msg" style="color:var(--critical-red); font-size:12px; margin-bottom:12px; display:none;"></div>
+        <button id="login-submit-btn" class="btn btn-primary full-width" style="font-weight:600; padding:10px;">
+          Verify & Unlock Officer Console
+        </button>
       </div>
     </div>
   </div>
