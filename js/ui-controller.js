@@ -5,10 +5,14 @@ BhuSetu.UI = {
   currentUser: null,
   
   init() {
-    // Role switcher
+    // Role switcher with strict authentication gate
     document.querySelectorAll('.role-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const targetRole = e.target.dataset.role;
+        if (targetRole === 'officer' && !this.currentUser) {
+          this.openLoginModal("Statutory Officer Authentication required. Enter credentials to access Officer Console.");
+          return;
+        }
         this.switchRole(targetRole);
       });
     });
@@ -18,6 +22,14 @@ BhuSetu.UI = {
     if (headerLoginBtn) {
       headerLoginBtn.addEventListener('click', () => {
         this.openLoginModal();
+      });
+    }
+
+    // Header Logout Button
+    const headerLogoutBtn = document.getElementById('header-logout-btn');
+    if (headerLogoutBtn) {
+      headerLogoutBtn.addEventListener('click', () => {
+        this.logout();
       });
     }
 
@@ -82,6 +94,9 @@ BhuSetu.UI = {
         setTimeout(() => { if (searchDropdown) searchDropdown.classList.add('hidden'); }, 200);
       });
     }
+
+    // Restore persisted session if officer previously logged in
+    this.checkPersistedSession();
   },
 
   openLoginModal(noticeText) {
@@ -175,6 +190,10 @@ BhuSetu.UI = {
 
   setAuthenticatedUser(user) {
     this.currentUser = user;
+    try {
+      sessionStorage.setItem('bhusetu_officer_user', JSON.stringify(user));
+    } catch (e) {}
+
     const badge = document.getElementById('auth-status-badge');
     const label = document.getElementById('auth-user-label');
     const loginBtn = document.getElementById('header-login-btn');
@@ -186,6 +205,33 @@ BhuSetu.UI = {
     if (loginBtn) {
       loginBtn.style.display = 'none';
     }
+  },
+
+  logout() {
+    this.currentUser = null;
+    try {
+      sessionStorage.removeItem('bhusetu_officer_user');
+    } catch (e) {}
+
+    const badge = document.getElementById('auth-status-badge');
+    const loginBtn = document.getElementById('header-login-btn');
+    if (badge) badge.classList.add('hidden');
+    if (loginBtn) loginBtn.style.display = 'inline-block';
+
+    this.showNotification('Officer session logged out.', 'info');
+    this.switchRole('citizen');
+  },
+
+  checkPersistedSession() {
+    try {
+      const saved = sessionStorage.getItem('bhusetu_officer_user');
+      if (saved) {
+        const user = JSON.parse(saved);
+        if (user && user.role) {
+          this.setAuthenticatedUser(user);
+        }
+      }
+    } catch (e) {}
   },
 
   renderSearchResults(results) {
@@ -221,6 +267,11 @@ BhuSetu.UI = {
   },
 
   switchRole(role) {
+    if (role === 'officer' && !this.currentUser) {
+      this.openLoginModal("Statutory Officer Authentication required. Enter credentials to access Officer Console.");
+      return;
+    }
+
     document.querySelectorAll('.portal-view').forEach(view => {
       view.classList.add('hidden');
     });
