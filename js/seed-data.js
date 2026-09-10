@@ -5993,7 +5993,1749 @@ window.BhuSetu.SeedData = (function() {
     "bufferZones": [],
     "buildingFootprint": null,
     "sanctionedFootprint": null
+  },
+{
+  "id": "parcel-37",
+  "ulpin": "14-7291-0037-2026",
+  "displayId": "14-7291-0037-2026",
+  "state_survey_no": "TS-HYD-JUB-PLT-101",
+  "surveyNumber": "TS-HYD-JUB-PLT-101",
+  "state": "Telangana",
+  "district": "Hyderabad",
+  "mandal": "Shaikpet",
+  "village": "Jubilee Hills / Madhapur",
+  "census_code": "574045",
+  "dmv_code": "1738015",
+  "owner_name": "Dr. A. Ramakrishna Rao",
+  "owner_masked": "D***r A. R***o",
+  "owner_type": "Statutory Freehold",
+  "legal_ror_area_sqm": 379.1,
+  "gis_area_sqm": 379.1,
+  "area_diff_sqm": 0.0,
+  "area_diff_pct": 0.0,
+  "status": "CLEAN",
+  "trust_score": "A",
+  "trust_num": 96,
+  "trustScore": 96,
+  "trustGrade": "A",
+  "zoning": "Residential R1 (Approved Layout)",
+  "classification": "Residential R1 (Approved Layout)",
+  "tax_status": "Paid",
+  "tax_amount": "\u20b96,823",
+  "tax_last_paid": "2025-12-18",
+  "dispute_tag": "CLEAN",
+  "permit_status": "Approved GHMC Building Permit (G+2)",
+  "location": {
+    "state": "Telangana",
+    "district": "Hyderabad",
+    "mandal": "Shaikpet",
+    "village": "Jubilee Hills / Madhapur"
+  },
+  "owner": {
+    "name": "Dr. A. Ramakrishna Rao",
+    "maskedName": "D***r A. R***o",
+    "type": "Statutory Freehold"
+  },
+  "area": {
+    "ror": 379.1,
+    "gis": 379.1,
+    "regionalUnit": "SQ_YARD",
+    "regionalValue": 453.4
+  },
+  "tax": {
+    "status": "Paid",
+    "lastPaid": "2025-12-18",
+    "amount": "\u20b96,823"
+  },
+  "building": {
+    "sanctioned": {
+      "type": "Residential Villa / Commercial Plot",
+      "height": 10.0,
+      "floors": 3,
+      "far": 1.5
+    },
+    "detected": {
+      "type": "Residential Villa / Commercial Building",
+      "height": 9.8,
+      "floors": 3,
+      "far": 1.48
+    }
+  },
+  "violations": [],
+  "buffer_zones": [],
+  "bufferZones": [],
+  "encumbrances": [
+    {
+      "date": "2022-03-10",
+      "type": "Registered Conveyance Deed",
+      "details": "Sub-Registrar Banjara Hills Doc #4137/2022",
+      "status": "Clear"
+    }
+  ],
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.39020359869049,
+          17.436783891066636
+        ],
+        [
+          78.39043497473969,
+          17.436770365678967
+        ],
+        [
+          78.39042600242767,
+          17.436631793304464
+        ],
+        [
+          78.3901946241286,
+          17.436645450139373
+        ],
+        [
+          78.39020359869049,
+          17.436783891066636
+        ]
+      ]
+    ]
+  },
+  "buildingFootprint": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.3902294,
+          17.4367547
+        ],
+        [
+          78.390224,
+          17.4366714
+        ],
+        [
+          78.3904002,
+          17.436661
+        ],
+        [
+          78.3904056,
+          17.4367444
+        ],
+        [
+          78.3902294,
+          17.4367547
+        ]
+      ]
+    ]
+  },
+  "sanctionedFootprint": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.3902294,
+          17.4367547
+        ],
+        [
+          78.390224,
+          17.4366714
+        ],
+        [
+          78.3904002,
+          17.436661
+        ],
+        [
+          78.3904056,
+          17.4367444
+        ],
+        [
+          78.3902294,
+          17.4367547
+        ]
+      ]
+    ]
   }
+},
+{
+  "id": "parcel-38",
+  "ulpin": "14-7291-0038-2026",
+  "displayId": "14-7291-0038-2026",
+  "state_survey_no": "TS-HYD-JUB-PLT-102",
+  "surveyNumber": "TS-HYD-JUB-PLT-102",
+  "state": "Telangana",
+  "district": "Hyderabad",
+  "mandal": "Shaikpet",
+  "village": "Jubilee Hills / Madhapur",
+  "census_code": "574045",
+  "dmv_code": "1738015",
+  "owner_name": "Smt. Lakshmi Narayana",
+  "owner_masked": "S***t L***i N***a",
+  "owner_type": "Statutory Freehold",
+  "legal_ror_area_sqm": 555.6,
+  "gis_area_sqm": 555.6,
+  "area_diff_sqm": 0.0,
+  "area_diff_pct": 0.0,
+  "status": "CLEAN",
+  "trust_score": "A",
+  "trust_num": 95,
+  "trustScore": 95,
+  "trustGrade": "A",
+  "zoning": "Residential R1 (Approved Layout)",
+  "classification": "Residential R1 (Approved Layout)",
+  "tax_status": "Paid",
+  "tax_amount": "\u20b910,000",
+  "tax_last_paid": "2025-12-18",
+  "dispute_tag": "CLEAN",
+  "permit_status": "Approved GHMC Building Permit (G+2)",
+  "location": {
+    "state": "Telangana",
+    "district": "Hyderabad",
+    "mandal": "Shaikpet",
+    "village": "Jubilee Hills / Madhapur"
+  },
+  "owner": {
+    "name": "Smt. Lakshmi Narayana",
+    "maskedName": "S***t L***i N***a",
+    "type": "Statutory Freehold"
+  },
+  "area": {
+    "ror": 555.6,
+    "gis": 555.6,
+    "regionalUnit": "SQ_YARD",
+    "regionalValue": 664.5
+  },
+  "tax": {
+    "status": "Paid",
+    "lastPaid": "2025-12-18",
+    "amount": "\u20b910,000"
+  },
+  "building": {
+    "sanctioned": {
+      "type": "Residential Villa / Commercial Plot",
+      "height": 10.0,
+      "floors": 3,
+      "far": 1.5
+    },
+    "detected": {
+      "type": "Residential Villa / Commercial Building",
+      "height": 9.8,
+      "floors": 3,
+      "far": 1.48
+    }
+  },
+  "violations": [],
+  "buffer_zones": [],
+  "bufferZones": [],
+  "encumbrances": [
+    {
+      "date": "2022-03-10",
+      "type": "Registered Conveyance Deed",
+      "details": "Sub-Registrar Banjara Hills Doc #4138/2022",
+      "status": "Clear"
+    }
+  ],
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.39229333147644,
+          17.44047970472557
+        ],
+        [
+          78.39255903539502,
+          17.440452213764843
+        ],
+        [
+          78.3925389460874,
+          17.440276796259926
+        ],
+        [
+          78.39227338751704,
+          17.440304285228752
+        ],
+        [
+          78.39229333147644,
+          17.44047970472557
+        ]
+      ]
+    ]
+  },
+  "buildingFootprint": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.3923177,
+          17.4404494
+        ],
+        [
+          78.3925284,
+          17.4404276
+        ],
+        [
+          78.3925146,
+          17.4403071
+        ],
+        [
+          78.392304,
+          17.4403289
+        ],
+        [
+          78.3923177,
+          17.4404494
+        ]
+      ]
+    ]
+  },
+  "sanctionedFootprint": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.3923177,
+          17.4404494
+        ],
+        [
+          78.3925284,
+          17.4404276
+        ],
+        [
+          78.3925146,
+          17.4403071
+        ],
+        [
+          78.392304,
+          17.4403289
+        ],
+        [
+          78.3923177,
+          17.4404494
+        ]
+      ]
+    ]
+  }
+},
+{
+  "id": "parcel-39",
+  "ulpin": "14-7291-0039-2026",
+  "displayId": "14-7291-0039-2026",
+  "state_survey_no": "TS-HYD-JUB-PLT-103",
+  "surveyNumber": "TS-HYD-JUB-PLT-103",
+  "state": "Telangana",
+  "district": "Hyderabad",
+  "mandal": "Shaikpet",
+  "village": "Jubilee Hills / Madhapur",
+  "census_code": "574045",
+  "dmv_code": "1738015",
+  "owner_name": "Venkat Chaitanya",
+  "owner_masked": "V***t C***a",
+  "owner_type": "Individual Freehold",
+  "legal_ror_area_sqm": 354.7,
+  "gis_area_sqm": 354.7,
+  "area_diff_sqm": 0.0,
+  "area_diff_pct": 0.0,
+  "status": "CLEAN",
+  "trust_score": "A",
+  "trust_num": 93,
+  "trustScore": 93,
+  "trustGrade": "A",
+  "zoning": "Residential R1 (Approved Layout)",
+  "classification": "Residential R1 (Approved Layout)",
+  "tax_status": "Paid",
+  "tax_amount": "\u20b96,384",
+  "tax_last_paid": "2025-12-18",
+  "dispute_tag": "CLEAN",
+  "permit_status": "Approved GHMC Building Permit (G+2)",
+  "location": {
+    "state": "Telangana",
+    "district": "Hyderabad",
+    "mandal": "Shaikpet",
+    "village": "Jubilee Hills / Madhapur"
+  },
+  "owner": {
+    "name": "Venkat Chaitanya",
+    "maskedName": "V***t C***a",
+    "type": "Individual Freehold"
+  },
+  "area": {
+    "ror": 354.7,
+    "gis": 354.7,
+    "regionalUnit": "SQ_YARD",
+    "regionalValue": 424.2
+  },
+  "tax": {
+    "status": "Paid",
+    "lastPaid": "2025-12-18",
+    "amount": "\u20b96,384"
+  },
+  "building": {
+    "sanctioned": {
+      "type": "Residential Villa / Commercial Plot",
+      "height": 10.0,
+      "floors": 3,
+      "far": 1.5
+    },
+    "detected": {
+      "type": "Residential Villa / Commercial Building",
+      "height": 9.8,
+      "floors": 3,
+      "far": 1.48
+    }
+  },
+  "violations": [],
+  "buffer_zones": [],
+  "bufferZones": [],
+  "encumbrances": [
+    {
+      "date": "2022-03-10",
+      "type": "Registered Conveyance Deed",
+      "details": "Sub-Registrar Banjara Hills Doc #4139/2022",
+      "status": "Clear"
+    }
+  ],
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.39940698158608,
+          17.441627362113252
+        ],
+        [
+          78.39954896835825,
+          17.44172423159333
+        ],
+        [
+          78.3996540427288,
+          17.441583937579807
+        ],
+        [
+          78.39951190937725,
+          17.441487068687728
+        ],
+        [
+          78.39940698158608,
+          17.441627362113252
+        ]
+      ]
+    ]
+  },
+  "buildingFootprint": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.3994464,
+          17.4416208
+        ],
+        [
+          78.3995427,
+          17.4416865
+        ],
+        [
+          78.3996146,
+          17.4415905
+        ],
+        [
+          78.3995182,
+          17.4415248
+        ],
+        [
+          78.3994464,
+          17.4416208
+        ]
+      ]
+    ]
+  },
+  "sanctionedFootprint": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.3994464,
+          17.4416208
+        ],
+        [
+          78.3995427,
+          17.4416865
+        ],
+        [
+          78.3996146,
+          17.4415905
+        ],
+        [
+          78.3995182,
+          17.4415248
+        ],
+        [
+          78.3994464,
+          17.4416208
+        ]
+      ]
+    ]
+  }
+},
+{
+  "id": "parcel-40",
+  "ulpin": "14-7291-0040-2026",
+  "displayId": "14-7291-0040-2026",
+  "state_survey_no": "TS-HYD-JUB-PLT-104",
+  "surveyNumber": "TS-HYD-JUB-PLT-104",
+  "state": "Telangana",
+  "district": "Hyderabad",
+  "mandal": "Shaikpet",
+  "village": "Jubilee Hills / Madhapur",
+  "census_code": "574045",
+  "dmv_code": "1738015",
+  "owner_name": "CyberEdge Ventures LLP",
+  "owner_masked": "C***r E***e L***P",
+  "owner_type": "Commercial Freehold",
+  "legal_ror_area_sqm": 341.8,
+  "gis_area_sqm": 341.8,
+  "area_diff_sqm": 0.0,
+  "area_diff_pct": 0.0,
+  "status": "CLEAN",
+  "trust_score": "A",
+  "trust_num": 92,
+  "trustScore": 92,
+  "trustGrade": "A",
+  "zoning": "Commercial Mixed Use (HMDA)",
+  "classification": "Commercial Mixed Use (HMDA)",
+  "tax_status": "Paid",
+  "tax_amount": "\u20b96,152",
+  "tax_last_paid": "2025-12-18",
+  "dispute_tag": "CLEAN",
+  "permit_status": "Approved GHMC Building Permit (G+2)",
+  "location": {
+    "state": "Telangana",
+    "district": "Hyderabad",
+    "mandal": "Shaikpet",
+    "village": "Jubilee Hills / Madhapur"
+  },
+  "owner": {
+    "name": "CyberEdge Ventures LLP",
+    "maskedName": "C***r E***e L***P",
+    "type": "Commercial Freehold"
+  },
+  "area": {
+    "ror": 341.8,
+    "gis": 341.8,
+    "regionalUnit": "SQ_YARD",
+    "regionalValue": 408.8
+  },
+  "tax": {
+    "status": "Paid",
+    "lastPaid": "2025-12-18",
+    "amount": "\u20b96,152"
+  },
+  "building": {
+    "sanctioned": {
+      "type": "Residential Villa / Commercial Plot",
+      "height": 10.0,
+      "floors": 3,
+      "far": 1.5
+    },
+    "detected": {
+      "type": "Residential Villa / Commercial Building",
+      "height": 9.8,
+      "floors": 3,
+      "far": 1.48
+    }
+  },
+  "violations": [],
+  "buffer_zones": [],
+  "bufferZones": [],
+  "encumbrances": [
+    {
+      "date": "2022-03-10",
+      "type": "Registered Conveyance Deed",
+      "details": "Sub-Registrar Banjara Hills Doc #4140/2022",
+      "status": "Clear"
+    }
+  ],
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.39004028148555,
+          17.437720256287268
+        ],
+        [
+          78.39026753170336,
+          17.43767158807463
+        ],
+        [
+          78.39024774636222,
+          17.43755378361216
+        ],
+        [
+          78.39006383708549,
+          17.43758177750977
+        ],
+        [
+          78.39002264604994,
+          17.437592140034447
+        ],
+        [
+          78.39004028148555,
+          17.437720256287268
+        ]
+      ]
+    ]
+  },
+  "buildingFootprint": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.3900636,
+          17.437687
+        ],
+        [
+          78.3902359,
+          17.4376501
+        ],
+        [
+          78.390225,
+          17.4375852
+        ],
+        [
+          78.3900693,
+          17.4376089
+        ],
+        [
+          78.3900534,
+          17.4376129
+        ],
+        [
+          78.3900636,
+          17.437687
+        ]
+      ]
+    ]
+  },
+  "sanctionedFootprint": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.3900636,
+          17.437687
+        ],
+        [
+          78.3902359,
+          17.4376501
+        ],
+        [
+          78.390225,
+          17.4375852
+        ],
+        [
+          78.3900693,
+          17.4376089
+        ],
+        [
+          78.3900534,
+          17.4376129
+        ],
+        [
+          78.3900636,
+          17.437687
+        ]
+      ]
+    ]
+  }
+},
+{
+  "id": "parcel-41",
+  "ulpin": "14-7291-0041-2026",
+  "displayId": "14-7291-0041-2026",
+  "state_survey_no": "TS-HYD-JUB-PLT-105",
+  "surveyNumber": "TS-HYD-JUB-PLT-105",
+  "state": "Telangana",
+  "district": "Hyderabad",
+  "mandal": "Shaikpet",
+  "village": "Jubilee Hills / Madhapur",
+  "census_code": "574045",
+  "dmv_code": "1738015",
+  "owner_name": "P. K. Srinivasan & Sons",
+  "owner_masked": "P. K. S***n & S***s",
+  "owner_type": "Individual Joint",
+  "legal_ror_area_sqm": 464.8,
+  "gis_area_sqm": 464.8,
+  "area_diff_sqm": 0.0,
+  "area_diff_pct": 0.0,
+  "status": "WARNING",
+  "trust_score": "C",
+  "trust_num": 64,
+  "trustScore": 64,
+  "trustGrade": "C",
+  "zoning": "Commercial Mixed Use (Setback Breach)",
+  "classification": "Commercial Mixed Use (Setback Breach)",
+  "tax_status": "Notice Issued",
+  "tax_amount": "\u20b98,366",
+  "tax_last_paid": "2025-12-18",
+  "dispute_tag": "WARNING",
+  "permit_status": "Under Town Planning Scrutiny",
+  "location": {
+    "state": "Telangana",
+    "district": "Hyderabad",
+    "mandal": "Shaikpet",
+    "village": "Jubilee Hills / Madhapur"
+  },
+  "owner": {
+    "name": "P. K. Srinivasan & Sons",
+    "maskedName": "P. K. S***n & S***s",
+    "type": "Individual Joint"
+  },
+  "area": {
+    "ror": 464.8,
+    "gis": 464.8,
+    "regionalUnit": "SQ_YARD",
+    "regionalValue": 555.9
+  },
+  "tax": {
+    "status": "Notice Issued",
+    "lastPaid": "2025-12-18",
+    "amount": "\u20b98,366"
+  },
+  "building": {
+    "sanctioned": {
+      "type": "Residential Villa / Commercial Plot",
+      "height": 10.0,
+      "floors": 3,
+      "far": 1.5
+    },
+    "detected": {
+      "type": "Residential Villa / Commercial Building",
+      "height": 11.6,
+      "floors": 3,
+      "far": 1.72
+    }
+  },
+  "violations": [
+    {
+      "id": "V-HYD-SETBACK-41",
+      "severity": "WARNING",
+      "type": "MUNICIPAL_SETBACK_VIOLATION",
+      "description": "GHMC Town Planning Notice: 1.2m Side Setback Encroachment on Service Lane",
+      "details": "Structure side wall built within 0.8m of plot boundary violating GHMC 2.0m statutory setback regulation.",
+      "encroachment_area_sqm": 24.5
+    }
+  ],
+  "buffer_zones": [],
+  "bufferZones": [],
+  "encumbrances": [
+    {
+      "date": "2022-03-10",
+      "type": "Registered Conveyance Deed",
+      "details": "Sub-Registrar Banjara Hills Doc #4141/2022",
+      "status": "Clear"
+    }
+  ],
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.39760640588302,
+          17.4393991915223
+        ],
+        [
+          78.3978243148092,
+          17.439549857090746
+        ],
+        [
+          78.39791449411697,
+          17.439431208477703
+        ],
+        [
+          78.3976965851908,
+          17.439280542909255
+        ],
+        [
+          78.39760640588302,
+          17.4393991915223
+        ]
+      ]
+    ]
+  },
+  "buildingFootprint": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.3976459,
+          17.4393929
+        ],
+        [
+          78.3978183,
+          17.4395121
+        ],
+        [
+          78.397875,
+          17.4394375
+        ],
+        [
+          78.3977026,
+          17.4393183
+        ],
+        [
+          78.3976459,
+          17.4393929
+        ]
+      ]
+    ]
+  },
+  "sanctionedFootprint": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.3976459,
+          17.4393929
+        ],
+        [
+          78.3978183,
+          17.4395121
+        ],
+        [
+          78.397875,
+          17.4394375
+        ],
+        [
+          78.3977026,
+          17.4393183
+        ],
+        [
+          78.3976459,
+          17.4393929
+        ]
+      ]
+    ]
+  }
+},
+{
+  "id": "parcel-42",
+  "ulpin": "14-7291-0042-2026",
+  "displayId": "14-7291-0042-2026",
+  "state_survey_no": "TS-HYD-JUB-PLT-106",
+  "surveyNumber": "TS-HYD-JUB-PLT-106",
+  "state": "Telangana",
+  "district": "Hyderabad",
+  "mandal": "Shaikpet",
+  "village": "Jubilee Hills / Madhapur",
+  "census_code": "574045",
+  "dmv_code": "1738015",
+  "owner_name": "Prashanthi Nilayam Trust",
+  "owner_masked": "P***i N***m T***t",
+  "owner_type": "Registered Trust",
+  "legal_ror_area_sqm": 1011.1,
+  "gis_area_sqm": 1011.1,
+  "area_diff_sqm": 0.0,
+  "area_diff_pct": 0.0,
+  "status": "CLEAN",
+  "trust_score": "A",
+  "trust_num": 97,
+  "trustScore": 97,
+  "trustGrade": "A",
+  "zoning": "Institutional / Community",
+  "classification": "Institutional / Community",
+  "tax_status": "Paid",
+  "tax_amount": "\u20b918,199",
+  "tax_last_paid": "2025-12-18",
+  "dispute_tag": "CLEAN",
+  "permit_status": "Approved GHMC Building Permit (G+2)",
+  "location": {
+    "state": "Telangana",
+    "district": "Hyderabad",
+    "mandal": "Shaikpet",
+    "village": "Jubilee Hills / Madhapur"
+  },
+  "owner": {
+    "name": "Prashanthi Nilayam Trust",
+    "maskedName": "P***i N***m T***t",
+    "type": "Registered Trust"
+  },
+  "area": {
+    "ror": 1011.1,
+    "gis": 1011.1,
+    "regionalUnit": "SQ_YARD",
+    "regionalValue": 1209.3
+  },
+  "tax": {
+    "status": "Paid",
+    "lastPaid": "2025-12-18",
+    "amount": "\u20b918,199"
+  },
+  "building": {
+    "sanctioned": {
+      "type": "Residential Villa / Commercial Plot",
+      "height": 10.0,
+      "floors": 3,
+      "far": 1.5
+    },
+    "detected": {
+      "type": "Residential Villa / Commercial Building",
+      "height": 9.8,
+      "floors": 3,
+      "far": 1.48
+    }
+  },
+  "violations": [],
+  "buffer_zones": [],
+  "bufferZones": [],
+  "encumbrances": [
+    {
+      "date": "2022-03-10",
+      "type": "Registered Conveyance Deed",
+      "details": "Sub-Registrar Banjara Hills Doc #4142/2022",
+      "status": "Clear"
+    }
+  ],
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.39357392916102,
+          17.435145623323237
+        ],
+        [
+          78.39388343132052,
+          17.43488758893859
+        ],
+        [
+          78.393739764205,
+          17.43473067687733
+        ],
+        [
+          78.39357464390245,
+          17.434868382408897
+        ],
+        [
+          78.39357398387904,
+          17.434867660119114
+        ],
+        [
+          78.39342967615575,
+          17.434988011059275
+        ],
+        [
+          78.39357392916102,
+          17.435145623323237
+        ]
+      ]
+    ]
+  },
+  "buildingFootprint": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.3935765,
+          17.4351075
+        ],
+        [
+          78.3938435,
+          17.4348849
+        ],
+        [
+          78.3937372,
+          17.4347688
+        ],
+        [
+          78.3936065,
+          17.4348778
+        ],
+        [
+          78.3936696,
+          17.4349466
+        ],
+        [
+          78.393635,
+          17.4349754
+        ],
+        [
+          78.3935714,
+          17.4349058
+        ],
+        [
+          78.3934696,
+          17.4349907
+        ],
+        [
+          78.3935765,
+          17.4351075
+        ]
+      ]
+    ]
+  },
+  "sanctionedFootprint": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.3935765,
+          17.4351075
+        ],
+        [
+          78.3938435,
+          17.4348849
+        ],
+        [
+          78.3937372,
+          17.4347688
+        ],
+        [
+          78.3936065,
+          17.4348778
+        ],
+        [
+          78.3936696,
+          17.4349466
+        ],
+        [
+          78.393635,
+          17.4349754
+        ],
+        [
+          78.3935714,
+          17.4349058
+        ],
+        [
+          78.3934696,
+          17.4349907
+        ],
+        [
+          78.3935765,
+          17.4351075
+        ]
+      ]
+    ]
+  }
+},
+{
+  "id": "parcel-43",
+  "ulpin": "14-7291-0043-2026",
+  "displayId": "14-7291-0043-2026",
+  "state_survey_no": "TS-HYD-JUB-PLT-107",
+  "surveyNumber": "TS-HYD-JUB-PLT-107",
+  "state": "Telangana",
+  "district": "Hyderabad",
+  "mandal": "Shaikpet",
+  "village": "Jubilee Hills / Madhapur",
+  "census_code": "574045",
+  "dmv_code": "1738015",
+  "owner_name": "G. Vikram Simha Reddy",
+  "owner_masked": "G. V***m S***a",
+  "owner_type": "Individual Freehold",
+  "legal_ror_area_sqm": 427.7,
+  "gis_area_sqm": 427.7,
+  "area_diff_sqm": 0.0,
+  "area_diff_pct": 0.0,
+  "status": "CLEAN",
+  "trust_score": "A",
+  "trust_num": 94,
+  "trustScore": 94,
+  "trustGrade": "A",
+  "zoning": "Residential R1 (Approved Layout)",
+  "classification": "Residential R1 (Approved Layout)",
+  "tax_status": "Paid",
+  "tax_amount": "\u20b97,698",
+  "tax_last_paid": "2025-12-18",
+  "dispute_tag": "CLEAN",
+  "permit_status": "Approved GHMC Building Permit (G+2)",
+  "location": {
+    "state": "Telangana",
+    "district": "Hyderabad",
+    "mandal": "Shaikpet",
+    "village": "Jubilee Hills / Madhapur"
+  },
+  "owner": {
+    "name": "G. Vikram Simha Reddy",
+    "maskedName": "G. V***m S***a",
+    "type": "Individual Freehold"
+  },
+  "area": {
+    "ror": 427.7,
+    "gis": 427.7,
+    "regionalUnit": "SQ_YARD",
+    "regionalValue": 511.5
+  },
+  "tax": {
+    "status": "Paid",
+    "lastPaid": "2025-12-18",
+    "amount": "\u20b97,698"
+  },
+  "building": {
+    "sanctioned": {
+      "type": "Residential Villa / Commercial Plot",
+      "height": 10.0,
+      "floors": 3,
+      "far": 1.5
+    },
+    "detected": {
+      "type": "Residential Villa / Commercial Building",
+      "height": 9.8,
+      "floors": 3,
+      "far": 1.48
+    }
+  },
+  "violations": [],
+  "buffer_zones": [],
+  "bufferZones": [],
+  "encumbrances": [
+    {
+      "date": "2022-03-10",
+      "type": "Registered Conveyance Deed",
+      "details": "Sub-Registrar Banjara Hills Doc #4143/2022",
+      "status": "Clear"
+    }
+  ],
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.39307325914302,
+          17.436173379169023
+        ],
+        [
+          78.39320470076566,
+          17.436101554012133
+        ],
+        [
+          78.39307994085698,
+          17.435893620830974
+        ],
+        [
+          78.39294849923434,
+          17.435965445987865
+        ],
+        [
+          78.39307325914302,
+          17.436173379169023
+        ]
+      ]
+    ]
+  },
+  "buildingFootprint": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.3930833,
+          17.4361364
+        ],
+        [
+          78.3931662,
+          17.4360911
+        ],
+        [
+          78.3930699,
+          17.4359306
+        ],
+        [
+          78.392987,
+          17.4359759
+        ],
+        [
+          78.3930833,
+          17.4361364
+        ]
+      ]
+    ]
+  },
+  "sanctionedFootprint": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.3930833,
+          17.4361364
+        ],
+        [
+          78.3931662,
+          17.4360911
+        ],
+        [
+          78.3930699,
+          17.4359306
+        ],
+        [
+          78.392987,
+          17.4359759
+        ],
+        [
+          78.3930833,
+          17.4361364
+        ]
+      ]
+    ]
+  }
+},
+{
+  "id": "parcel-44",
+  "ulpin": "14-7291-0044-2026",
+  "displayId": "14-7291-0044-2026",
+  "state_survey_no": "TS-HYD-JUB-PLT-108",
+  "surveyNumber": "TS-HYD-JUB-PLT-108",
+  "state": "Telangana",
+  "district": "Hyderabad",
+  "mandal": "Shaikpet",
+  "village": "Jubilee Hills / Madhapur",
+  "census_code": "574045",
+  "dmv_code": "1738015",
+  "owner_name": "Ananya Constructions",
+  "owner_masked": "A***a C***s",
+  "owner_type": "Developer Freehold",
+  "legal_ror_area_sqm": 464.3,
+  "gis_area_sqm": 464.3,
+  "area_diff_sqm": 0.0,
+  "area_diff_pct": 0.0,
+  "status": "WARNING",
+  "trust_score": "B",
+  "trust_num": 78,
+  "trustScore": 78,
+  "trustGrade": "B",
+  "zoning": "Residential High-Density R2",
+  "classification": "Residential High-Density R2",
+  "tax_status": "Notice Issued",
+  "tax_amount": "\u20b98,357",
+  "tax_last_paid": "2025-12-18",
+  "dispute_tag": "WARNING",
+  "permit_status": "Under Town Planning Scrutiny",
+  "location": {
+    "state": "Telangana",
+    "district": "Hyderabad",
+    "mandal": "Shaikpet",
+    "village": "Jubilee Hills / Madhapur"
+  },
+  "owner": {
+    "name": "Ananya Constructions",
+    "maskedName": "A***a C***s",
+    "type": "Developer Freehold"
+  },
+  "area": {
+    "ror": 464.3,
+    "gis": 464.3,
+    "regionalUnit": "SQ_YARD",
+    "regionalValue": 555.3
+  },
+  "tax": {
+    "status": "Notice Issued",
+    "lastPaid": "2025-12-18",
+    "amount": "\u20b98,357"
+  },
+  "building": {
+    "sanctioned": {
+      "type": "Residential Villa / Commercial Plot",
+      "height": 10.0,
+      "floors": 3,
+      "far": 1.5
+    },
+    "detected": {
+      "type": "Residential Villa / Commercial Building",
+      "height": 11.6,
+      "floors": 3,
+      "far": 1.72
+    }
+  },
+  "violations": [
+    {
+      "id": "V-HYD-TAX-44",
+      "severity": "WARNING",
+      "type": "PROPERTY_TAX_DEFAULT",
+      "description": "GHMC Municipal Tax Notice: Commercial Assessment Under-reporting",
+      "details": "Property assessed as residential while ground floor leased for commercial establishment. Differential penalty levied.",
+      "encroachment_area_sqm": 0.0
+    }
+  ],
+  "buffer_zones": [],
+  "bufferZones": [],
+  "encumbrances": [
+    {
+      "date": "2022-03-10",
+      "type": "Registered Conveyance Deed",
+      "details": "Sub-Registrar Banjara Hills Doc #4144/2022",
+      "status": "Clear"
+    }
+  ],
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.39934247067917,
+          17.436900504723383
+        ],
+        [
+          78.39944314071761,
+          17.43692270817939
+        ],
+        [
+          78.39944824123282,
+          17.43690180606804
+        ],
+        [
+          78.39947373069674,
+          17.436907425792366
+        ],
+        [
+          78.39947812499257,
+          17.436889149516546
+        ],
+        [
+          78.3994791889597,
+          17.436889385095473
+        ],
+        [
+          78.3994689894849,
+          17.436931382932862
+        ],
+        [
+          78.39958434137392,
+          17.43695693318841
+        ],
+        [
+          78.39962283319353,
+          17.43679902580244
+        ],
+        [
+          78.39938024916324,
+          17.43674526115522
+        ],
+        [
+          78.39934247067917,
+          17.436900504723383
+        ]
+      ]
+    ]
+  },
+  "buildingFootprint": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.399376,
+          17.4368796
+        ],
+        [
+          78.3994227,
+          17.4368899
+        ],
+        [
+          78.3994278,
+          17.436869
+        ],
+        [
+          78.3994532,
+          17.4368746
+        ],
+        [
+          78.3994576,
+          17.4368563
+        ],
+        [
+          78.3995127,
+          17.4368685
+        ],
+        [
+          78.3995025,
+          17.4369105
+        ],
+        [
+          78.3995639,
+          17.4369241
+        ],
+        [
+          78.3995893,
+          17.4368199
+        ],
+        [
+          78.3994007,
+          17.4367781
+        ],
+        [
+          78.399376,
+          17.4368796
+        ]
+      ]
+    ]
+  },
+  "sanctionedFootprint": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.399376,
+          17.4368796
+        ],
+        [
+          78.3994227,
+          17.4368899
+        ],
+        [
+          78.3994278,
+          17.436869
+        ],
+        [
+          78.3994532,
+          17.4368746
+        ],
+        [
+          78.3994576,
+          17.4368563
+        ],
+        [
+          78.3995127,
+          17.4368685
+        ],
+        [
+          78.3995025,
+          17.4369105
+        ],
+        [
+          78.3995639,
+          17.4369241
+        ],
+        [
+          78.3995893,
+          17.4368199
+        ],
+        [
+          78.3994007,
+          17.4367781
+        ],
+        [
+          78.399376,
+          17.4368796
+        ]
+      ]
+    ]
+  }
+},
+{
+  "id": "parcel-45",
+  "ulpin": "14-7291-0045-2026",
+  "displayId": "14-7291-0045-2026",
+  "state_survey_no": "TS-HYD-JUB-PLT-109",
+  "surveyNumber": "TS-HYD-JUB-PLT-109",
+  "state": "Telangana",
+  "district": "Hyderabad",
+  "mandal": "Shaikpet",
+  "village": "Jubilee Hills / Madhapur",
+  "census_code": "574045",
+  "dmv_code": "1738015",
+  "owner_name": "K. Haritha & K. Manohar",
+  "owner_masked": "K. H***a & K. M***r",
+  "owner_type": "Joint Spousal Title",
+  "legal_ror_area_sqm": 482.6,
+  "gis_area_sqm": 482.6,
+  "area_diff_sqm": 0.0,
+  "area_diff_pct": 0.0,
+  "status": "CLEAN",
+  "trust_score": "A",
+  "trust_num": 95,
+  "trustScore": 95,
+  "trustGrade": "A",
+  "zoning": "Residential R1 (Approved Layout)",
+  "classification": "Residential R1 (Approved Layout)",
+  "tax_status": "Paid",
+  "tax_amount": "\u20b98,686",
+  "tax_last_paid": "2025-12-18",
+  "dispute_tag": "CLEAN",
+  "permit_status": "Approved GHMC Building Permit (G+2)",
+  "location": {
+    "state": "Telangana",
+    "district": "Hyderabad",
+    "mandal": "Shaikpet",
+    "village": "Jubilee Hills / Madhapur"
+  },
+  "owner": {
+    "name": "K. Haritha & K. Manohar",
+    "maskedName": "K. H***a & K. M***r",
+    "type": "Joint Spousal Title"
+  },
+  "area": {
+    "ror": 482.6,
+    "gis": 482.6,
+    "regionalUnit": "SQ_YARD",
+    "regionalValue": 577.2
+  },
+  "tax": {
+    "status": "Paid",
+    "lastPaid": "2025-12-18",
+    "amount": "\u20b98,686"
+  },
+  "building": {
+    "sanctioned": {
+      "type": "Residential Villa / Commercial Plot",
+      "height": 10.0,
+      "floors": 3,
+      "far": 1.5
+    },
+    "detected": {
+      "type": "Residential Villa / Commercial Building",
+      "height": 9.8,
+      "floors": 3,
+      "far": 1.48
+    }
+  },
+  "violations": [],
+  "buffer_zones": [],
+  "bufferZones": [],
+  "encumbrances": [
+    {
+      "date": "2022-03-10",
+      "type": "Registered Conveyance Deed",
+      "details": "Sub-Registrar Banjara Hills Doc #4145/2022",
+      "status": "Clear"
+    }
+  ],
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.39755845027224,
+          17.440467519086482
+        ],
+        [
+          78.3976665127928,
+          17.440322571225575
+        ],
+        [
+          78.39747906889794,
+          17.440195183455113
+        ],
+        [
+          78.3973708662642,
+          17.4403401259978
+        ],
+        [
+          78.39755845027224,
+          17.440467519086482
+        ]
+      ]
+    ]
+  },
+  "buildingFootprint": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.3975521,
+          17.4404298
+        ],
+        [
+          78.3976271,
+          17.4403292
+        ],
+        [
+          78.3974854,
+          17.4402329
+        ],
+        [
+          78.3974103,
+          17.4403335
+        ],
+        [
+          78.3975521,
+          17.4404298
+        ]
+      ]
+    ]
+  },
+  "sanctionedFootprint": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.3975521,
+          17.4404298
+        ],
+        [
+          78.3976271,
+          17.4403292
+        ],
+        [
+          78.3974854,
+          17.4402329
+        ],
+        [
+          78.3974103,
+          17.4403335
+        ],
+        [
+          78.3975521,
+          17.4404298
+        ]
+      ]
+    ]
+  }
+},
+{
+  "id": "parcel-46",
+  "ulpin": "14-7291-0046-2026",
+  "displayId": "14-7291-0046-2026",
+  "state_survey_no": "TS-HYD-JUB-PLT-110",
+  "surveyNumber": "TS-HYD-JUB-PLT-110",
+  "state": "Telangana",
+  "district": "Hyderabad",
+  "mandal": "Shaikpet",
+  "village": "Jubilee Hills / Madhapur",
+  "census_code": "574045",
+  "dmv_code": "1738015",
+  "owner_name": "Apex Infotech Solutions",
+  "owner_masked": "A***x I***h",
+  "owner_type": "IT Commercial Freehold",
+  "legal_ror_area_sqm": 759.2,
+  "gis_area_sqm": 759.2,
+  "area_diff_sqm": 0.0,
+  "area_diff_pct": 0.0,
+  "status": "CLEAN",
+  "trust_score": "A",
+  "trust_num": 91,
+  "trustScore": 91,
+  "trustGrade": "A",
+  "zoning": "IT Corridor Commercial",
+  "classification": "IT Corridor Commercial",
+  "tax_status": "Paid",
+  "tax_amount": "\u20b913,665",
+  "tax_last_paid": "2025-12-18",
+  "dispute_tag": "CLEAN",
+  "permit_status": "Approved GHMC Building Permit (G+2)",
+  "location": {
+    "state": "Telangana",
+    "district": "Hyderabad",
+    "mandal": "Shaikpet",
+    "village": "Jubilee Hills / Madhapur"
+  },
+  "owner": {
+    "name": "Apex Infotech Solutions",
+    "maskedName": "A***x I***h",
+    "type": "IT Commercial Freehold"
+  },
+  "area": {
+    "ror": 759.2,
+    "gis": 759.2,
+    "regionalUnit": "SQ_YARD",
+    "regionalValue": 908.0
+  },
+  "tax": {
+    "status": "Paid",
+    "lastPaid": "2025-12-18",
+    "amount": "\u20b913,665"
+  },
+  "building": {
+    "sanctioned": {
+      "type": "Residential Villa / Commercial Plot",
+      "height": 10.0,
+      "floors": 3,
+      "far": 1.5
+    },
+    "detected": {
+      "type": "Residential Villa / Commercial Building",
+      "height": 9.8,
+      "floors": 3,
+      "far": 1.48
+    }
+  },
+  "violations": [],
+  "buffer_zones": [],
+  "bufferZones": [],
+  "encumbrances": [
+    {
+      "date": "2022-03-10",
+      "type": "Registered Conveyance Deed",
+      "details": "Sub-Registrar Banjara Hills Doc #4146/2022",
+      "status": "Clear"
+    }
+  ],
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.39471817825661,
+          17.43597567408762
+        ],
+        [
+          78.39481387517002,
+          17.436196413236562
+        ],
+        [
+          78.39506312174339,
+          17.43609812591238
+        ],
+        [
+          78.39496742482999,
+          17.43587738676344
+        ],
+        [
+          78.39471817825661,
+          17.43597567408762
+        ]
+      ]
+    ]
+  },
+  "buildingFootprint": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.3947549,
+          17.4359909
+        ],
+        [
+          78.3948286,
+          17.4361609
+        ],
+        [
+          78.3950264,
+          17.4360829
+        ],
+        [
+          78.3949527,
+          17.4359129
+        ],
+        [
+          78.3947549,
+          17.4359909
+        ]
+      ]
+    ]
+  },
+  "sanctionedFootprint": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          78.3947549,
+          17.4359909
+        ],
+        [
+          78.3948286,
+          17.4361609
+        ],
+        [
+          78.3950264,
+          17.4360829
+        ],
+        [
+          78.3949527,
+          17.4359129
+        ],
+        [
+          78.3947549,
+          17.4359909
+        ]
+      ]
+    ]
+  }
+}
 ];
 
   return {
